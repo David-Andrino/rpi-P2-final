@@ -13,18 +13,19 @@ all:
 	upload
 
 clean:
-	rm -rf $(OUT)/*
-	rm -f main
-	rm $(IPFILE)
+	-rm -rf $(OUT)/*
+	-rm -f main
+	-rm $(IPFILE)
 
 setIP:
-	echo -n "Raspberry Pi IP: "
-	# TODO
+	@read -p "Enter RaspberryPi's IP address: " raspiIP; \
+    echo -n "$$raspiIP" > $(IPFILE); \
+    unset raspiIP
 
 upload: 
 	scp main root@$$(cat $(IPFILE)):.
 
-main: $(OUT)/main.o $(OUT)/accelerometer.o $(OUT)/colorsensor.o
+main: $(OUT)/main.o $(OUT)/accelerometer.o $(OUT)/colorSensor.o
 	$(GXX) $(FLAGS) -o $@ $^
 
 $(OUT)/main.o: $(SRC)/main.c
@@ -33,5 +34,5 @@ $(OUT)/main.o: $(SRC)/main.c
 $(OUT)/accelerometer.o: $(SRC)/Accelerometer/accelerometer.c $(SRC)/Accelerometer/accelerometer.h
 	$(GXX) -c $(FLAGS) -o $@ $<
 	
-$(OUT)/colorsensor.o: $(SRC)/ColorSensor/colorsensor.c $(SRC)/ColorSensor/colorsensor.h
+$(OUT)/colorSensor.o: $(SRC)/ColorSensor/colorSensor.c $(SRC)/ColorSensor/colorSensor.h
 	$(GXX) -c $(FLAGS) -o $@ $<
