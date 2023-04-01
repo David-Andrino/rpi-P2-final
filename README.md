@@ -38,6 +38,7 @@ You can download an alredy compiled version in the [Releases](https://github.com
 ## Main Features
 - Interactive UI
 - Multiple threads in Producer-Consumer model
+- Use of 4 threads to accomodate to the 4 cores of the Raspberry
 - Code checked with cppcheck for possible memory leaks
 - Compliant to Embedded C Standard (check sources)
 - Configurable color sensing
