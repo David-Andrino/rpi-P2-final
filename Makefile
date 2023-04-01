@@ -1,5 +1,5 @@
 GXX=/home/ubuntu/Desktop/buildroot2/buildroot-2022.11/output/host/bin/arm-buildroot-linux-gnueabihf-gcc
-FLAGS=-Wall -pedantic -O2
+FLAGS=-lpthread -Wall -pedantic -O2
 SRC=src
 OUT=out
 IPFILE=.lastip
