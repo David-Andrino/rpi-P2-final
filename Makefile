@@ -12,9 +12,9 @@ outdir:
 	-@if [ ! -d "$(OUT)" ]; then mkdir "$(OUT)"; fi
 
 clean:
-	-@rm -rf $(OUT)/*
-	-@rm -f main
-	-@rm $(IPFILE)
+	-@rm -rf $(OUT)/* 2>/dev/null || true
+	-@rm -f main 2>/dev/null || true
+	-@rm $(IPFILE) 2>/dev/null || true
 
 setIP:
 	@read -p "Enter RaspberryPi's IP address: " raspiIP; \
