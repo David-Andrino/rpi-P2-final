@@ -6,7 +6,7 @@ IPFILE=.lastip
 
 .PHONY=all clean upload setIP
 
-all: clean main setIP upload
+all: clean main upload
 
 outdir:
 	-@if [ ! -d "$(OUT)" ]; then mkdir "$(OUT)"; fi
@@ -14,6 +14,8 @@ outdir:
 clean:
 	-@rm -rf $(OUT)/* 2>/dev/null || true
 	-@rm -f main 2>/dev/null || true
+
+cleanIP:
 	-@rm $(IPFILE) 2>/dev/null || true
 
 setIP:
