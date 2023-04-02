@@ -37,28 +37,28 @@ static sigset_t g_stopsignals;
  * Thread safe get of the g_stop variable
 */
 static inline int get_stop() {
-	pthread_sigmask(SIG_BLOCK, &g_stopsignals, NULL);
+	// pthread_sigmask(SIG_BLOCK, &g_stopsignals, NULL);
 	pthread_mutex_lock(&g_stop_mutex);
 	int tmp_stop = gb_stop;
 	pthread_mutex_unlock(&g_stop_mutex);
-	pthread_sigmask(SIG_UNBLOCK, &g_stopsignals, NULL);
+	// pthread_sigmask(SIG_UNBLOCK, &g_stopsignals, NULL);
 	return tmp_stop;
 }
 
 void sigint_isr(int signal) {
 	#ifdef DEBUG
-		printf("[DEBUG] SIGINT received");
+		printf("[DEBUG] SIGINT received\n");
 	#endif
 	gb_stop = 1;
 }
 
 void* acc_thread_fn(void *ptr) {
 	#ifdef DEBUG
-		printf("[DEBUG] Begin of acceleration thread");
+		printf("[DEBUG] Begin of acceleration thread\n");
 	#endif
 	acc_init();
 	#ifdef DEBUG
-		printf("[DEBUG] Acceleration sensor inited");
+		printf("[DEBUG] Acceleration sensor inited\n");
 	#endif
 	while (!get_stop()) {
 		// Read acceleration from the sensor
@@ -74,22 +74,22 @@ void* acc_thread_fn(void *ptr) {
 		usleep(500000);
 	}
 	#ifdef DEBUG
-		printf("[DEBUG] Closing acceleration sensor");
+		printf("[DEBUG] Closing acceleration sensor\n");
 	#endif
 	acc_close();
 	#ifdef DEBUG
-		printf("[DEBUG] End of acceleration thread");
+		printf("[DEBUG] End of acceleration thread\n");
 	#endif
 	pthread_exit(NULL);
 }
 
 void* color_thread_fn(void *ptr) {
 	#ifdef DEBUG
-		printf("[DEBUG] Begin of color thread");
+		printf("[DEBUG] Begin of color thread\n");
 	#endif
 	cs_init();
 	#ifdef DEBUG
-		printf("[DEBUG] Color sensor inited");
+		printf("[DEBUG] Color sensor inited\n");
 	#endif
 	while (!get_stop()) {
 		// Read acceleration from the sensor
@@ -105,18 +105,18 @@ void* color_thread_fn(void *ptr) {
 		usleep(500000);
 	}
 	#ifdef DEBUG
-		printf("[DEBUG] Closing color sensor");
+		printf("[DEBUG] Closing color sensor\n");
 	#endif
 	cs_close();
 	#ifdef DEBUG
-		printf("[DEBUG] End of color thread");
+		printf("[DEBUG] End of color thread\n");
 	#endif
 	pthread_exit(NULL);
 }
 
 void* display_thread_fn(void *ptr) {
 	#ifdef DEBUG
-		printf("[DEBUG] Begin of display thread");
+		printf("[DEBUG] Begin of display thread\n");
 	#endif
 
 	printf("Raspberry Pi sensing application - By David Andrino and Fernando Sanz\n");
@@ -126,23 +126,29 @@ void* display_thread_fn(void *ptr) {
 
 			pthread_mutex_lock(&g_acc_mutex);
 			pthread_mutex_lock(&g_color_mutex);
+            #ifdef DEBUG
+                printf("Print values \n");
+            #else
 				printf("\033[F\033[F\033[F\033[F\033[F\033[F\033[F\033[F\rAcceleration:\n\tX: %.02f\n\tY: %.02f\n\tZ: %.02f\nColor:\n\tR: %03d\n\tG: %03d\n\tB: %03d",
 				g_acceleration.x, g_acceleration.y, g_acceleration.z,
 				g_rgb_color.r, g_rgb_color.g, g_rgb_color.b);
+            #endif
+
 			pthread_mutex_unlock(&g_acc_mutex);
 			pthread_mutex_unlock(&g_color_mutex);
 
+            gb_data_ready = 0;
 		pthread_mutex_unlock(&g_data_mutex);
 	}
 	#ifdef DEBUG
-		printf("[DEBUG] End of display thread");
+		printf("[DEBUG] End of display thread\n");
 	#endif
 	pthread_exit(NULL);
 }
 
 void* input_thread_fn(void *ptr) {
 	#ifdef DEBUG
-		printf("[DEBUG] Begin of input thread");
+		printf("[DEBUG] Begin of input thread\n");
 	#endif
 
 	while (!get_stop()) {
@@ -159,11 +165,11 @@ void* input_thread_fn(void *ptr) {
 				printf("\033[F\033[F\033[F\033[F\033[F\033[F\033[F\033[F\rPressed %c\n\n\n\n\n\n\n", c);
 				break;
 		} */
-		sleep(0.5);
+        usleep(500000);
 	}
 
 	#ifdef DEBUG
-		printf("[DEBUG] End of input thread");
+		printf("[DEBUG] End of input thread\n");
 	#endif
 
 	pthread_exit(NULL);
@@ -178,7 +184,7 @@ int main(int argc, char** argv) {
 	signal(SIGINT, sigint_isr);
 
 	#ifdef DEBUG
-		printf("[DEBUG] Creating Threads");
+		printf("[DEBUG] Creating Threads\n");
 	#endif
 	pthread_create(&acc_tid,     NULL, acc_thread_fn,     NULL);
 	pthread_create(&color_tid,   NULL, color_thread_fn,   NULL);
@@ -192,7 +198,7 @@ int main(int argc, char** argv) {
 	pthread_mutex_unlock(&g_stop_mutex);
 
 	#ifdef DEBUG
-		printf("[DEBUG] Exiting threads");
+		printf("[DEBUG] Exiting threads\n");
 	#endif
 	// Wait for the threads to exit
 	pthread_join(acc_tid,     NULL);
@@ -200,7 +206,7 @@ int main(int argc, char** argv) {
 	pthread_join(input_tid,   NULL);
 	pthread_join(display_tid, NULL);
 	#ifdef DEBUG
-		printf("[DEBUG] All threads finished, exiting program");
+		printf("[DEBUG] All threads finished, exiting program\n");
 	#endif
 
 	exit(0);
