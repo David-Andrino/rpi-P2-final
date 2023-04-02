@@ -41,18 +41,17 @@
 
 typedef struct {
     uint8_t r, g, b;
-} rgbColor_t;
+} rgb_color_t;
 
 typedef struct {
     uint8_t r, g, b, c;
-    uint8_t correctedR, correctedG, correctedB;
-    float   IR, temperature, saturation, lux;
-} colorParams_t;
+    uint8_t corrected_r, corrected_g, corrected_b;
+    float   ir, temperature, saturation, lux;
+} complete_color_t;
 
 extern void cs_init();
-extern int  cs_readClearCorrectedColor(rgbColor_t* color);
-extern int  cs_readRawColor(rgbColor_t* color);
-extern void cs_readColorParams(colorParams_t* params);
+extern int  cs_read_clear_corrected(rgb_color_t* color);
+extern int  cs_read_raw(rgb_color_t* color);
+extern void cs_read_complete(complete_color_t* params);
 extern void cs_close();
-extern void readFer(rgbColor_t* color);
 #endif

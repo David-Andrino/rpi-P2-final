@@ -9,9 +9,9 @@
 #include <linux/i2c.h>
 #include <linux/i2c-dev.h>
 
-static int fd;
+static int g_fd;
 
-void writeRegister(uint8_t reg, uint8_t data) {
+void acc_write_register(uint8_t reg, uint8_t data) {
     uint8_t m2sBuf[2]; // Master to slave
     struct i2c_rdwr_ioctl_data packets;
     struct i2c_msg messages[1];
@@ -31,7 +31,7 @@ void writeRegister(uint8_t reg, uint8_t data) {
     packets.nmsgs = 1;
 
     // Send packet
-    ioctl(fd, I2C_RDWR, &packets);
+    ioctl(g_fd, I2C_RDWR, &packets);
 }
 
 void acc_read(acc_t* acc) {
@@ -60,7 +60,7 @@ void acc_read(acc_t* acc) {
     packets.nmsgs = 2;
 
     // Send packet
-    ioctl(fd, I2C_RDWR, &packets);
+    ioctl(g_fd, I2C_RDWR, &packets);
 
     #ifdef DEBUG
         printf("[DEBUG] Read %02X\n", reading[0]);
@@ -77,15 +77,15 @@ void acc_read(acc_t* acc) {
 }
 
 void acc_init() {
-    fd = open(ACC_I2C_DEVICE, O_RDWR);
-    ioctl(fd, I2C_SLAVE, ACC_I2C_SLAVE_ADDRESS);
-    writeRegister(ACC_POWER_REG_1, 0x80); // Initial reset
+    g_fd = open(ACC_I2C_DEVICE, O_RDWR);
+    ioctl(g_fd, I2C_SLAVE, ACC_I2C_SLAVE_ADDRESS);
+    acc_write_register(ACC_POWER_REG_1, 0x80); // Initial reset
     usleep(500);
-    writeRegister(ACC_POWER_REG_2, 0X07); // Disable Gyro and 1.25 Hz
-    writeRegister(ACC_POWER_REG_1, 0X28); // Cycle Mode, internal clk, temperature off 
+    acc_write_register(ACC_POWER_REG_2, 0X07); // Disable Gyro and 1.25 Hz
+    acc_write_register(ACC_POWER_REG_1, 0X28); // Cycle Mode, internal clk, temperature off 
     usleep(500);
 }
 
 void acc_close() {
-    close(fd);
+    close(g_fd);
 }
