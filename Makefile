@@ -14,6 +14,8 @@ outdir:
 clean:
 	-@rm -rf $(OUT)/* 2>/dev/null || true
 	-@rm -f main 2>/dev/null || true
+
+cleanIP:
 	-@rm $(IPFILE) 2>/dev/null || true
 
 setIP:
