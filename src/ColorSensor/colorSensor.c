@@ -13,7 +13,7 @@ static int g_fd;
 
 void cs_write_register(uint8_t reg, uint8_t data);
 
-static void cs_read_raw(uint16_t* r, uint16_t* g, uint16_t* b, uint16_t* c) {
+static void cs_read_raw_registers(uint16_t* r, uint16_t* g, uint16_t* b, uint16_t* c) {
     uint8_t reading[8];
     struct i2c_rdwr_ioctl_data packets;
     struct i2c_msg messages[2];
@@ -58,7 +58,7 @@ void cs_close() {
 int cs_read_clear_corrected(rgb_color_t *color) {
     // Get colors
     uint16_t r, g, b, c;
-    cs_read_raw(&r, &g, &b, &c);   
+    cs_read_raw_registers(&r, &g, &b, &c);   
 
     if (c == 0) {
         color->r = 0;
@@ -79,7 +79,7 @@ int cs_read_clear_corrected(rgb_color_t *color) {
 int  cs_read_raw(rgb_color_t* color) {
     // Get colors
     uint16_t r, g, b, c;
-    cs_read_raw(&r, &g, &b, &c);   
+    cs_read_raw_registers(&r, &g, &b, &c);   
 
     // Convert to RGB
     color->r = (uint8_t)(255.0f * r / 0xFFFF);
