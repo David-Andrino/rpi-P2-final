@@ -24,11 +24,11 @@ setIP:
 upload: 
 	scp main root@$$(cat $(IPFILE)):.
 
-main: $(OUT)/main.o $(OUT)/accelerometer.o $(OUT)/colorSensor.o outdir
+main: $(OUT)/main.o $(OUT)/accelerometer.o $(OUT)/colorSensor.o 
 	$(GXX) $(FLAGS) -o $@ $^
 
 $(OUT)/main.o: $(SRC)/main.c outdir
-	$(GXX) -c $(FLAGS) -o $@ $^
+	$(GXX) -c $(FLAGS) -o $@ $<
 	
 $(OUT)/accelerometer.o: $(SRC)/Accelerometer/accelerometer.c $(SRC)/Accelerometer/accelerometer.h outdir
 	$(GXX) -c $(FLAGS) -o $@ $<
