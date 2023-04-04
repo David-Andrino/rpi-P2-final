@@ -6,7 +6,7 @@ IPFILE=.lastip
 
 .PHONY=all clean upload setIP
 
-all: clean main upload
+all: clean main upload connect
 
 outdir:
 	-@if [ ! -d "$(OUT)" ]; then mkdir "$(OUT)"; fi
@@ -25,6 +25,9 @@ setIP:
 
 upload: 
 	scp main root@$$(cat $(IPFILE)):.
+
+connect:
+	ssh -t root@$$(cat $(IPFILE)) "./main"
 
 main: $(OUT)/main.o $(OUT)/accelerometer.o $(OUT)/colorSensor.o 
 	$(GXX) $(FLAGS) -o $@ $^
