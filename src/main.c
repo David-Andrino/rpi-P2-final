@@ -1,7 +1,7 @@
 /*
  *  main.c - Main file of the project
  *
- *  Created on: Mar 21=02023
+ *  Created on: Mar 21/2023
  *      Author: David Andrino & Fernando Sanz
  */
 #include <stdio.h>
