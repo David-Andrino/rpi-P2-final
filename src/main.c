@@ -135,8 +135,16 @@ void* display_thread_fn(void *ptr) {
                 printf("Print values \n");
             #else
 				printf("\033[7A\r");
-				printf("Acceleration:\n\tX: %.02f\n\tY: %.02f\n\tZ: %.02f\nColor:\n\tR: %03d\n\tG: %03d\n\tB: %03d",
+				printf("Acceleration:\n"
+				"\tX: %.02f\n"
+				"\tY: %.02f\n"
+				"\tZ: %.02f\n"
+				"\033[38;2;%d;%d;%dmColor:\n"
+				"\tR: %03d\n"
+				"\tG: %03d\n"
+				"\tB: %03d",
 				g_acceleration.x, g_acceleration.y, g_acceleration.z,
+				g_rgb_color.r, g_rgb_color.g, g_rgb_color.b,
 				g_rgb_color.r, g_rgb_color.g, g_rgb_color.b);
             #endif
 
