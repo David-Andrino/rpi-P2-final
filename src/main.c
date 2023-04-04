@@ -14,16 +14,12 @@
 #include "Accelerometer/accelerometer.h"
 #include "ColorSensor/colorSensor.h"
 
-#define DEBUG
-
 static volatile int gb_stop = 0;
 static pthread_mutex_t g_stop_mutex  = PTHREAD_MUTEX_INITIALIZER;
 static pthread_mutex_t g_acc_mutex   = PTHREAD_MUTEX_INITIALIZER;
 static pthread_mutex_t g_color_mutex = PTHREAD_MUTEX_INITIALIZER;
 static pthread_mutex_t g_data_mutex  = PTHREAD_MUTEX_INITIALIZER;
 static pthread_cond_t g_stop_cond    = PTHREAD_COND_INITIALIZER;
-static pthread_cond_t g_acc_cond     = PTHREAD_COND_INITIALIZER;
-static pthread_cond_t g_color_cond   = PTHREAD_COND_INITIALIZER;
 static pthread_cond_t g_data_cond    = PTHREAD_COND_INITIALIZER;
 
 static acc_t            g_acceleration;
@@ -50,6 +46,8 @@ void sigint_isr(int signal) {
 		printf("[DEBUG] SIGINT received\n");
 	#endif
 	gb_stop = 1;
+	pthread_cond_broadcast(&g_stop_cond);
+	pthread_cond_broadcast(&g_data_cond);
 }
 
 void* acc_thread_fn(void *ptr) {
@@ -69,7 +67,7 @@ void* acc_thread_fn(void *ptr) {
 		// Change data_ready flag to indicate the display thread to read
 		pthread_mutex_lock(&g_data_mutex);
 			gb_data_ready = 1;
-			pthread_cond_signal(&g_data_cond);
+			pthread_cond_broadcast(&g_data_cond);
 		pthread_mutex_unlock(&g_data_mutex);
 		usleep(500000);
 	}
@@ -100,7 +98,7 @@ void* color_thread_fn(void *ptr) {
 		// Change data_ready flag to indicate the display thread to read
 		pthread_mutex_lock(&g_data_mutex);
 			gb_data_ready = 1;
-			pthread_cond_signal(&g_data_cond);
+			pthread_cond_broadcast(&g_data_cond);
 		pthread_mutex_unlock(&g_data_mutex);
 		usleep(500000);
 	}
@@ -119,17 +117,25 @@ void* display_thread_fn(void *ptr) {
 		printf("[DEBUG] Begin of display thread\n");
 	#endif
 
-	printf("Raspberry Pi sensing application - By David Andrino and Fernando Sanz\n");
+	printf("Raspberry Pi sensing application - By David Andrino and Fernando Sanz\n\n\n\n\n\n\n\n");
 	while (!get_stop()) {
 		pthread_mutex_lock(&g_data_mutex);
-			while (!gb_data_ready) pthread_cond_wait(&g_data_cond, &g_data_mutex);
+			int tmpstop;
+			while (!gb_data_ready && !(tmpstop = get_stop())) 
+				pthread_cond_wait(&g_data_cond, &g_data_mutex);
+
+			if (tmpstop) {
+				pthread_mutex_unlock(&g_data_mutex);
+				break;
+			}
 
 			pthread_mutex_lock(&g_acc_mutex);
 			pthread_mutex_lock(&g_color_mutex);
             #ifdef DEBUG
                 printf("Print values \n");
             #else
-				printf("\033[F\033[F\033[F\033[F\033[F\033[F\033[F\033[F\rAcceleration:\n\tX: %.02f\n\tY: %.02f\n\tZ: %.02f\nColor:\n\tR: %03d\n\tG: %03d\n\tB: %03d",
+				printf("\033[7A\r");
+				printf("Acceleration:\n\tX: %.02f\n\tY: %.02f\n\tZ: %.02f\nColor:\n\tR: %03d\n\tG: %03d\n\tB: %03d",
 				g_acceleration.x, g_acceleration.y, g_acceleration.z,
 				g_rgb_color.r, g_rgb_color.g, g_rgb_color.b);
             #endif
@@ -137,9 +143,14 @@ void* display_thread_fn(void *ptr) {
 			pthread_mutex_unlock(&g_acc_mutex);
 			pthread_mutex_unlock(&g_color_mutex);
 
+			usleep(500000);
             gb_data_ready = 0;
 		pthread_mutex_unlock(&g_data_mutex);
 	}
+
+	printf("\033[7A\r");
+	for (int i = 0; i < 8; i++) printf("                                    \n");
+	printf("\033[7A\rApplication succesfully ended\n");
 	#ifdef DEBUG
 		printf("[DEBUG] End of display thread\n");
 	#endif
