@@ -80,10 +80,10 @@ void acc_init() {
     g_fd = open(ACC_I2C_DEVICE, O_RDWR);
     ioctl(g_fd, I2C_SLAVE, ACC_I2C_SLAVE_ADDRESS);
     acc_write_register(ACC_POWER_REG_1, 0x80); // Initial reset
-    usleep(500);
+    usleep(500000);
     acc_write_register(ACC_POWER_REG_2, 0X07); // Disable Gyro and 1.25 Hz
     acc_write_register(ACC_POWER_REG_1, 0X28); // Cycle Mode, internal clk, temperature off 
-    usleep(500);
+    usleep(500000);
 }
 
 void acc_close() {
