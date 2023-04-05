@@ -1,0 +1,108 @@
+\hypertarget{accelerometer_8h}{}\section{src/\+Accelerometer/accelerometer.h File Reference}
+\label{accelerometer_8h}\index{src/\+Accelerometer/accelerometer.\+h@{src/\+Accelerometer/accelerometer.\+h}}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=329pt]{accelerometer_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structacc__t}{acc\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Structure to store the acceleration values as doubles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{accelerometer_8h_a18d84c81f16340967647972c0d6eb452}{A\+C\+C\+\_\+\+I2\+C\+\_\+\+D\+E\+V\+I\+CE}~\char`\"{}/dev/i2c-\/1\char`\"{}
+\item 
+\#define \hyperlink{accelerometer_8h_a9f124818f524841838a7537856f07cdb}{A\+C\+C\+\_\+\+I2\+C\+\_\+\+S\+L\+A\+V\+E\+\_\+\+A\+D\+D\+R\+E\+SS}~0x68
+\item 
+\#define \hyperlink{accelerometer_8h_a604d4495d7e2d97a08991a5bd9584efb}{A\+C\+C\+\_\+\+R\+E\+G\+\_\+\+B\+A\+SE}~0x3B
+\item 
+\#define \hyperlink{accelerometer_8h_a1a945d17b24e537d12d2401da4233cc5}{A\+C\+C\+\_\+\+P\+O\+W\+E\+R\+\_\+\+R\+E\+G\+\_\+1}~0x6B
+\item 
+\#define \hyperlink{accelerometer_8h_af291eeb7d6508cb7437987e44a401d69}{A\+C\+C\+\_\+\+P\+O\+W\+E\+R\+\_\+\+R\+E\+G\+\_\+2}~0x6C
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{accelerometer_8h_a4738b3c11245be7180336375f685206f}{acc\+\_\+init} ()
+\begin{DoxyCompactList}\small\item\em Reset registers, disable Gyroscope and Temperature Sensor and set readings at 1.\+25 Hz. \end{DoxyCompactList}\item 
+void \hyperlink{accelerometer_8h_ae257b8efacf1001cf37944ebf81582b2}{acc\+\_\+read} (\hyperlink{structacc__t}{acc\+\_\+t} $\ast$acc)
+\begin{DoxyCompactList}\small\item\em Read last acceleration measurement from device. \end{DoxyCompactList}\item 
+void \hyperlink{accelerometer_8h_a484dade8351c6bfb9f880a9af9890853}{acc\+\_\+close} ()
+\begin{DoxyCompactList}\small\item\em Close accelerometer connection. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{accelerometer_8h_a18d84c81f16340967647972c0d6eb452}\label{accelerometer_8h_a18d84c81f16340967647972c0d6eb452}} 
+\index{accelerometer.\+h@{accelerometer.\+h}!A\+C\+C\+\_\+\+I2\+C\+\_\+\+D\+E\+V\+I\+CE@{A\+C\+C\+\_\+\+I2\+C\+\_\+\+D\+E\+V\+I\+CE}}
+\index{A\+C\+C\+\_\+\+I2\+C\+\_\+\+D\+E\+V\+I\+CE@{A\+C\+C\+\_\+\+I2\+C\+\_\+\+D\+E\+V\+I\+CE}!accelerometer.\+h@{accelerometer.\+h}}
+\subsubsection{\texorpdfstring{A\+C\+C\+\_\+\+I2\+C\+\_\+\+D\+E\+V\+I\+CE}{ACC\_I2C\_DEVICE}}
+{\footnotesize\ttfamily \#define A\+C\+C\+\_\+\+I2\+C\+\_\+\+D\+E\+V\+I\+CE~\char`\"{}/dev/i2c-\/1\char`\"{}}
+
+\mbox{\Hypertarget{accelerometer_8h_a9f124818f524841838a7537856f07cdb}\label{accelerometer_8h_a9f124818f524841838a7537856f07cdb}} 
+\index{accelerometer.\+h@{accelerometer.\+h}!A\+C\+C\+\_\+\+I2\+C\+\_\+\+S\+L\+A\+V\+E\+\_\+\+A\+D\+D\+R\+E\+SS@{A\+C\+C\+\_\+\+I2\+C\+\_\+\+S\+L\+A\+V\+E\+\_\+\+A\+D\+D\+R\+E\+SS}}
+\index{A\+C\+C\+\_\+\+I2\+C\+\_\+\+S\+L\+A\+V\+E\+\_\+\+A\+D\+D\+R\+E\+SS@{A\+C\+C\+\_\+\+I2\+C\+\_\+\+S\+L\+A\+V\+E\+\_\+\+A\+D\+D\+R\+E\+SS}!accelerometer.\+h@{accelerometer.\+h}}
+\subsubsection{\texorpdfstring{A\+C\+C\+\_\+\+I2\+C\+\_\+\+S\+L\+A\+V\+E\+\_\+\+A\+D\+D\+R\+E\+SS}{ACC\_I2C\_SLAVE\_ADDRESS}}
+{\footnotesize\ttfamily \#define A\+C\+C\+\_\+\+I2\+C\+\_\+\+S\+L\+A\+V\+E\+\_\+\+A\+D\+D\+R\+E\+SS~0x68}
+
+\mbox{\Hypertarget{accelerometer_8h_a1a945d17b24e537d12d2401da4233cc5}\label{accelerometer_8h_a1a945d17b24e537d12d2401da4233cc5}} 
+\index{accelerometer.\+h@{accelerometer.\+h}!A\+C\+C\+\_\+\+P\+O\+W\+E\+R\+\_\+\+R\+E\+G\+\_\+1@{A\+C\+C\+\_\+\+P\+O\+W\+E\+R\+\_\+\+R\+E\+G\+\_\+1}}
+\index{A\+C\+C\+\_\+\+P\+O\+W\+E\+R\+\_\+\+R\+E\+G\+\_\+1@{A\+C\+C\+\_\+\+P\+O\+W\+E\+R\+\_\+\+R\+E\+G\+\_\+1}!accelerometer.\+h@{accelerometer.\+h}}
+\subsubsection{\texorpdfstring{A\+C\+C\+\_\+\+P\+O\+W\+E\+R\+\_\+\+R\+E\+G\+\_\+1}{ACC\_POWER\_REG\_1}}
+{\footnotesize\ttfamily \#define A\+C\+C\+\_\+\+P\+O\+W\+E\+R\+\_\+\+R\+E\+G\+\_\+1~0x6B}
+
+\mbox{\Hypertarget{accelerometer_8h_af291eeb7d6508cb7437987e44a401d69}\label{accelerometer_8h_af291eeb7d6508cb7437987e44a401d69}} 
+\index{accelerometer.\+h@{accelerometer.\+h}!A\+C\+C\+\_\+\+P\+O\+W\+E\+R\+\_\+\+R\+E\+G\+\_\+2@{A\+C\+C\+\_\+\+P\+O\+W\+E\+R\+\_\+\+R\+E\+G\+\_\+2}}
+\index{A\+C\+C\+\_\+\+P\+O\+W\+E\+R\+\_\+\+R\+E\+G\+\_\+2@{A\+C\+C\+\_\+\+P\+O\+W\+E\+R\+\_\+\+R\+E\+G\+\_\+2}!accelerometer.\+h@{accelerometer.\+h}}
+\subsubsection{\texorpdfstring{A\+C\+C\+\_\+\+P\+O\+W\+E\+R\+\_\+\+R\+E\+G\+\_\+2}{ACC\_POWER\_REG\_2}}
+{\footnotesize\ttfamily \#define A\+C\+C\+\_\+\+P\+O\+W\+E\+R\+\_\+\+R\+E\+G\+\_\+2~0x6C}
+
+\mbox{\Hypertarget{accelerometer_8h_a604d4495d7e2d97a08991a5bd9584efb}\label{accelerometer_8h_a604d4495d7e2d97a08991a5bd9584efb}} 
+\index{accelerometer.\+h@{accelerometer.\+h}!A\+C\+C\+\_\+\+R\+E\+G\+\_\+\+B\+A\+SE@{A\+C\+C\+\_\+\+R\+E\+G\+\_\+\+B\+A\+SE}}
+\index{A\+C\+C\+\_\+\+R\+E\+G\+\_\+\+B\+A\+SE@{A\+C\+C\+\_\+\+R\+E\+G\+\_\+\+B\+A\+SE}!accelerometer.\+h@{accelerometer.\+h}}
+\subsubsection{\texorpdfstring{A\+C\+C\+\_\+\+R\+E\+G\+\_\+\+B\+A\+SE}{ACC\_REG\_BASE}}
+{\footnotesize\ttfamily \#define A\+C\+C\+\_\+\+R\+E\+G\+\_\+\+B\+A\+SE~0x3B}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{accelerometer_8h_a484dade8351c6bfb9f880a9af9890853}\label{accelerometer_8h_a484dade8351c6bfb9f880a9af9890853}} 
+\index{accelerometer.\+h@{accelerometer.\+h}!acc\+\_\+close@{acc\+\_\+close}}
+\index{acc\+\_\+close@{acc\+\_\+close}!accelerometer.\+h@{accelerometer.\+h}}
+\subsubsection{\texorpdfstring{acc\+\_\+close()}{acc\_close()}}
+{\footnotesize\ttfamily void acc\+\_\+close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Close accelerometer connection. 
+
+\mbox{\Hypertarget{accelerometer_8h_a4738b3c11245be7180336375f685206f}\label{accelerometer_8h_a4738b3c11245be7180336375f685206f}} 
+\index{accelerometer.\+h@{accelerometer.\+h}!acc\+\_\+init@{acc\+\_\+init}}
+\index{acc\+\_\+init@{acc\+\_\+init}!accelerometer.\+h@{accelerometer.\+h}}
+\subsubsection{\texorpdfstring{acc\+\_\+init()}{acc\_init()}}
+{\footnotesize\ttfamily void acc\+\_\+init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reset registers, disable Gyroscope and Temperature Sensor and set readings at 1.\+25 Hz. 
+
+\mbox{\Hypertarget{accelerometer_8h_ae257b8efacf1001cf37944ebf81582b2}\label{accelerometer_8h_ae257b8efacf1001cf37944ebf81582b2}} 
+\index{accelerometer.\+h@{accelerometer.\+h}!acc\+\_\+read@{acc\+\_\+read}}
+\index{acc\+\_\+read@{acc\+\_\+read}!accelerometer.\+h@{accelerometer.\+h}}
+\subsubsection{\texorpdfstring{acc\+\_\+read()}{acc\_read()}}
+{\footnotesize\ttfamily void acc\+\_\+read (\begin{DoxyParamCaption}\item[{\hyperlink{structacc__t}{acc\+\_\+t} $\ast$}]{acc }\end{DoxyParamCaption})}
+
+
+
+Read last acceleration measurement from device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em acc} & Pointer to the struct to save the data \\
+\hline
+\end{DoxyParams}

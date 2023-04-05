@@ -1,0 +1,73 @@
+Project for the Embedded System Design with Raspberry Pi subject in the 2022/23 course. Made by David Andrino and Fernando Sanz.
+
+Multi-\/threaded application that uses I2C to communicate with the T\+C\+S3462 color sensor and displays its measurements to the user through a terminal. It allows the user to select different color measurement calculations such as IR reject, clear compensation, etc.
+
+\subsection*{Usage}
+
+T\+O\+DO\+: Add usage and images about the application
+
+\subsection*{Build from Source}
+
+To use this application you have to clone the repository, compile it with a cross-\/compiling tool and update to the Raspberry Pi. You need a compiler created with the same Buildroot configuration that was used to generate the Raspberry Pi\textquotesingle{}s embedded operating system.
+
+
+\begin{DoxyCode}
+git clone https://github.com/SoraSpades/rpi-P2-final/ && \(\backslash\)
+cd rpi-P2-final/ && \(\backslash\)
+make && \(\backslash\)
+scp ./main root@<raspberry pi's IP>:.
+\end{DoxyCode}
+
+
+After the execution of that command, the application can be found inside the home folder of the root user in the Raspberry Pi.
+
+The usage of this application depends on the availability of the I2C virtual device inside the {\ttfamily /dev} folder in the Raspberry Pi. If it is missing, two things must be done\+:
+\begin{DoxyEnumerate}
+\item Add the following lines to the {\ttfamily config.\+txt} file inside the boot partition of the SD card\+: 
+\begin{DoxyCode}
+dtparam=i2c\_arm=on
+dtparam=i2c1=on
+\end{DoxyCode}
+
+\item Create a file called {\ttfamily S60i2c} inside the {\ttfamily /etc/init.d/} folder in the Raspberry Pi with the following content and make it executable ({\ttfamily chmod +x /etc/init.d/\+S60i2c})\+: 
+\begin{DoxyCode}
+#!/bin/sh
+modprobe i2c-bcm2835
+modprobe i2c-dev
+\end{DoxyCode}
+
+\end{DoxyEnumerate}
+
+\subsection*{Download Release}
+
+You can download an alredy compiled version in the \href{https://github.com/SoraSpades/rpi-P2-final/releases}{\tt Releases} tab. It, however, will only work in a Raspberry Pi with an embedded operating system compiled with buildroot with the same parameters as in the classes and it needs i2c enabled. Download the executable and copy it with an app like {\ttfamily scp} or {\ttfamily sftp}.
+
+\subsection*{Main Features}
+
+
+\begin{DoxyItemize}
+\item Interactive UI
+\item Multiple threads in Producer-\/\+Consumer model
+\item Use of 4 threads to accomodate to the 4 cores of the Raspberry
+\item Code checked with cppcheck for possible memory leaks
+\item Compliant to Embedded C Standard (check sources)
+\item Configurable color sensing
+\end{DoxyItemize}
+
+\subsection*{Sources}
+
+
+\begin{DoxyItemize}
+\item \href{https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Register-Map1.pdf}{\tt M\+P\+U-\/6000 and M\+P\+U-\/6050 Register Map and Descriptions}
+\item \href{https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Datasheet1.pdf}{\tt M\+P\+U-\/6000 and M\+P\+U-\/6050 Product Specification}
+\item \href{https://cdn-shop.adafruit.com/datasheets/TCS34725.pdf}{\tt T\+C\+S3472 Datasheet}
+\item \href{https://github.com/adafruit/Adafruit_TCS34725}{\tt Adafruit\textquotesingle{}s Color Sensor Library for Arduino}
+\item \href{https://www.cs.cmu.edu/afs/cs/academic/class/15492-f07/www/pthreads.html}{\tt P\+O\+S\+IX thread (pthread) libraries}
+\item \href{https://pubs.opengroup.org/onlinepubs/9699919799/functions/pthread_mutex_lock.html}{\tt P\+O\+S\+IX mutex specification}
+\item \href{https://barrgroup.com/embedded-systems/books/embedded-c-coding-standard}{\tt Embedded C Coding Standard}
+\item \href{https://books.google.es/books?id=T0JRAgAAQBAJ&printsec=frontcover&hl=es#v=onepage&q&f=false}{\tt Raspberry Pi Cookbook}
+\item \href{https://www.mankier.com/package/i2c-tools}{\tt I2\+C-\/tools Wiki}
+\item \href{https://stackoverflow.com/questions/52975817/setup-i2c-reading-and-writing-in-c-language}{\tt Stack\+Overflow question regarding i2c}
+\item \href{https://openest.io/en/services/activate-raspberry-pi-4-i2c-bus/}{\tt How to activate Raspberry-\/pi’s i2c bus}
+\item \href{https://www.doxygen.nl/index.html}{\tt Doxygen} 
+\end{DoxyItemize}

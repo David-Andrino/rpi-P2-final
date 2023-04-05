@@ -1,0 +1,75 @@
+\hypertarget{accelerometer_8c}{}\section{src/\+Accelerometer/accelerometer.c File Reference}
+\label{accelerometer_8c}\index{src/\+Accelerometer/accelerometer.\+c@{src/\+Accelerometer/accelerometer.\+c}}
+{\ttfamily \#include \char`\"{}accelerometer.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$signal.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$fcntl.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$sys/ioctl.\+h$>$}\newline
+{\ttfamily \#include $<$linux/i2c.\+h$>$}\newline
+{\ttfamily \#include $<$linux/i2c-\/dev.\+h$>$}\newline
+Include dependency graph for accelerometer.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{accelerometer_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{accelerometer_8c_a7c5f144d9a53b740d4241be5ecf700f1}{acc\+\_\+write\+\_\+register} (uint8\+\_\+t reg, uint8\+\_\+t data)
+\item 
+void \hyperlink{accelerometer_8c_ae257b8efacf1001cf37944ebf81582b2}{acc\+\_\+read} (\hyperlink{structacc__t}{acc\+\_\+t} $\ast$acc)
+\begin{DoxyCompactList}\small\item\em Read last acceleration measurement from device. \end{DoxyCompactList}\item 
+void \hyperlink{accelerometer_8c_a4738b3c11245be7180336375f685206f}{acc\+\_\+init} ()
+\begin{DoxyCompactList}\small\item\em Reset registers, disable Gyroscope and Temperature Sensor and set readings at 1.\+25 Hz. \end{DoxyCompactList}\item 
+void \hyperlink{accelerometer_8c_a484dade8351c6bfb9f880a9af9890853}{acc\+\_\+close} ()
+\begin{DoxyCompactList}\small\item\em Close accelerometer connection. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{accelerometer_8c_a484dade8351c6bfb9f880a9af9890853}\label{accelerometer_8c_a484dade8351c6bfb9f880a9af9890853}} 
+\index{accelerometer.\+c@{accelerometer.\+c}!acc\+\_\+close@{acc\+\_\+close}}
+\index{acc\+\_\+close@{acc\+\_\+close}!accelerometer.\+c@{accelerometer.\+c}}
+\subsubsection{\texorpdfstring{acc\+\_\+close()}{acc\_close()}}
+{\footnotesize\ttfamily void acc\+\_\+close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Close accelerometer connection. 
+
+\mbox{\Hypertarget{accelerometer_8c_a4738b3c11245be7180336375f685206f}\label{accelerometer_8c_a4738b3c11245be7180336375f685206f}} 
+\index{accelerometer.\+c@{accelerometer.\+c}!acc\+\_\+init@{acc\+\_\+init}}
+\index{acc\+\_\+init@{acc\+\_\+init}!accelerometer.\+c@{accelerometer.\+c}}
+\subsubsection{\texorpdfstring{acc\+\_\+init()}{acc\_init()}}
+{\footnotesize\ttfamily void acc\+\_\+init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reset registers, disable Gyroscope and Temperature Sensor and set readings at 1.\+25 Hz. 
+
+\mbox{\Hypertarget{accelerometer_8c_ae257b8efacf1001cf37944ebf81582b2}\label{accelerometer_8c_ae257b8efacf1001cf37944ebf81582b2}} 
+\index{accelerometer.\+c@{accelerometer.\+c}!acc\+\_\+read@{acc\+\_\+read}}
+\index{acc\+\_\+read@{acc\+\_\+read}!accelerometer.\+c@{accelerometer.\+c}}
+\subsubsection{\texorpdfstring{acc\+\_\+read()}{acc\_read()}}
+{\footnotesize\ttfamily void acc\+\_\+read (\begin{DoxyParamCaption}\item[{\hyperlink{structacc__t}{acc\+\_\+t} $\ast$}]{acc }\end{DoxyParamCaption})}
+
+
+
+Read last acceleration measurement from device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em acc} & Pointer to the struct to save the data \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{accelerometer_8c_a7c5f144d9a53b740d4241be5ecf700f1}\label{accelerometer_8c_a7c5f144d9a53b740d4241be5ecf700f1}} 
+\index{accelerometer.\+c@{accelerometer.\+c}!acc\+\_\+write\+\_\+register@{acc\+\_\+write\+\_\+register}}
+\index{acc\+\_\+write\+\_\+register@{acc\+\_\+write\+\_\+register}!accelerometer.\+c@{accelerometer.\+c}}
+\subsubsection{\texorpdfstring{acc\+\_\+write\+\_\+register()}{acc\_write\_register()}}
+{\footnotesize\ttfamily void acc\+\_\+write\+\_\+register (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{reg,  }\item[{uint8\+\_\+t}]{data }\end{DoxyParamCaption})}
+

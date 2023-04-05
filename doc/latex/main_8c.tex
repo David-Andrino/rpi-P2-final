@@ -1,0 +1,136 @@
+\hypertarget{main_8c}{}\section{src/main.c File Reference}
+\label{main_8c}\index{src/main.\+c@{src/main.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$signal.\+h$>$}\newline
+{\ttfamily \#include $<$pthread.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Accelerometer/accelerometer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Color\+Sensor/color\+Sensor.\+h\char`\"{}}\newline
+Include dependency graph for main.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{main_8c_aa418b4e82e713f09e062f7c98681ca0b}{sigint\+\_\+isr} (int signal)
+\begin{DoxyCompactList}\small\item\em I\+SR for the S\+I\+G\+I\+NT signal. Sets the stop flag to 1 and notifies all sleeping threads. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{main_8c_afcaf8fe023c53655944cf8fdc667a565}{acc\+\_\+thread\+\_\+fn} (void $\ast$ptr)
+\begin{DoxyCompactList}\small\item\em Thread for the acceleration sensor. Starts the sensor and periodically polls its content. When the stop flag is set, closes the sensor. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{main_8c_a30fede0c10a2e568db2212570e64a274}{color\+\_\+thread\+\_\+fn} (void $\ast$ptr)
+\begin{DoxyCompactList}\small\item\em Thread for the color sensor. Starts the sensor and periodically polls its content. When the stop flag is set, closes the sensor. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{main_8c_a137f0753b4df0eb2e4890cfff561f444}{display\+\_\+thread\+\_\+fn} (void $\ast$ptr)
+\begin{DoxyCompactList}\small\item\em Display thread. When there is data ready, prints it to the screen. When the stop flag is set, prints the exit message. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{main_8c_a58dd83353bca316f6f5d2a03bdf83605}{input\+\_\+thread\+\_\+fn} (void $\ast$ptr)
+\begin{DoxyCompactList}\small\item\em Thread to take and process user input. \end{DoxyCompactList}\item 
+int \hyperlink{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\begin{DoxyCompactList}\small\item\em Entry point for the project. Starts all the threads and waits for them to finish to close the program. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{main_8c_afcaf8fe023c53655944cf8fdc667a565}\label{main_8c_afcaf8fe023c53655944cf8fdc667a565}} 
+\index{main.\+c@{main.\+c}!acc\+\_\+thread\+\_\+fn@{acc\+\_\+thread\+\_\+fn}}
+\index{acc\+\_\+thread\+\_\+fn@{acc\+\_\+thread\+\_\+fn}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{acc\+\_\+thread\+\_\+fn()}{acc\_thread\_fn()}}
+{\footnotesize\ttfamily void$\ast$ acc\+\_\+thread\+\_\+fn (\begin{DoxyParamCaption}\item[{void $\ast$}]{ptr }\end{DoxyParamCaption})}
+
+
+
+Thread for the acceleration sensor. Starts the sensor and periodically polls its content. When the stop flag is set, closes the sensor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & Not used \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+(void$\ast$) Not used 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_a30fede0c10a2e568db2212570e64a274}\label{main_8c_a30fede0c10a2e568db2212570e64a274}} 
+\index{main.\+c@{main.\+c}!color\+\_\+thread\+\_\+fn@{color\+\_\+thread\+\_\+fn}}
+\index{color\+\_\+thread\+\_\+fn@{color\+\_\+thread\+\_\+fn}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{color\+\_\+thread\+\_\+fn()}{color\_thread\_fn()}}
+{\footnotesize\ttfamily void$\ast$ color\+\_\+thread\+\_\+fn (\begin{DoxyParamCaption}\item[{void $\ast$}]{ptr }\end{DoxyParamCaption})}
+
+
+
+Thread for the color sensor. Starts the sensor and periodically polls its content. When the stop flag is set, closes the sensor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & Not used \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+(void$\ast$) Not used 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_a137f0753b4df0eb2e4890cfff561f444}\label{main_8c_a137f0753b4df0eb2e4890cfff561f444}} 
+\index{main.\+c@{main.\+c}!display\+\_\+thread\+\_\+fn@{display\+\_\+thread\+\_\+fn}}
+\index{display\+\_\+thread\+\_\+fn@{display\+\_\+thread\+\_\+fn}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{display\+\_\+thread\+\_\+fn()}{display\_thread\_fn()}}
+{\footnotesize\ttfamily void$\ast$ display\+\_\+thread\+\_\+fn (\begin{DoxyParamCaption}\item[{void $\ast$}]{ptr }\end{DoxyParamCaption})}
+
+
+
+Display thread. When there is data ready, prints it to the screen. When the stop flag is set, prints the exit message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & Not used \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+(void$\ast$) Not used 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_a58dd83353bca316f6f5d2a03bdf83605}\label{main_8c_a58dd83353bca316f6f5d2a03bdf83605}} 
+\index{main.\+c@{main.\+c}!input\+\_\+thread\+\_\+fn@{input\+\_\+thread\+\_\+fn}}
+\index{input\+\_\+thread\+\_\+fn@{input\+\_\+thread\+\_\+fn}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{input\+\_\+thread\+\_\+fn()}{input\_thread\_fn()}}
+{\footnotesize\ttfamily void$\ast$ input\+\_\+thread\+\_\+fn (\begin{DoxyParamCaption}\item[{void $\ast$}]{ptr }\end{DoxyParamCaption})}
+
+
+
+Thread to take and process user input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & Not used \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+(void$\ast$) Not used 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{main.\+c@{main.\+c}!main@{main}}
+\index{main@{main}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Entry point for the project. Starts all the threads and waits for them to finish to close the program. 
+
+\begin{DoxyReturn}{Returns}
+(int) Exit code of the program 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_aa418b4e82e713f09e062f7c98681ca0b}\label{main_8c_aa418b4e82e713f09e062f7c98681ca0b}} 
+\index{main.\+c@{main.\+c}!sigint\+\_\+isr@{sigint\+\_\+isr}}
+\index{sigint\+\_\+isr@{sigint\+\_\+isr}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{sigint\+\_\+isr()}{sigint\_isr()}}
+{\footnotesize\ttfamily void sigint\+\_\+isr (\begin{DoxyParamCaption}\item[{int}]{signal }\end{DoxyParamCaption})}
+
+
+
+I\+SR for the S\+I\+G\+I\+NT signal. Sets the stop flag to 1 and notifies all sleeping threads. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em signal} & Signal identifier \\
+\hline
+\end{DoxyParams}

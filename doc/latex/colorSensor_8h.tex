@@ -1,0 +1,375 @@
+\hypertarget{colorSensor_8h}{}\section{src/\+Color\+Sensor/color\+Sensor.h File Reference}
+\label{colorSensor_8h}\index{src/\+Color\+Sensor/color\+Sensor.\+h@{src/\+Color\+Sensor/color\+Sensor.\+h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for color\+Sensor.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{colorSensor_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{colorSensor_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structrgb__color__t}{rgb\+\_\+color\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Basic struct for an R\+GB color. Contains the three colors as unsigned 8 bits. \end{DoxyCompactList}\item 
+struct \hyperlink{structcomplete__color__t}{complete\+\_\+color\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Advanced color structure. Contains the rgbc color, the corrected rgb, the IR, temperature, saturation and lux values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{colorSensor_8h_a7ac144fbb22a44749e5071fc8a3768f8}{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+S\+L\+A\+V\+E\+\_\+\+A\+D\+D\+R\+E\+SS}~0x29
+\item 
+\#define \hyperlink{colorSensor_8h_a29054016a6feea652c2cc21dc8675a7e}{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+I2\+C\+\_\+\+D\+E\+V\+I\+CE}~\char`\"{}/dev/i2c-\/1\char`\"{}
+\item 
+\#define \hyperlink{colorSensor_8h_a2c1a60a3b3c45782008d0b48d35dc2d8}{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+O\+M\+M\+A\+ND}~0x80
+\item 
+\#define \hyperlink{colorSensor_8h_ab53e2cd3502c808ce7a99285bac868cc}{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+O\+N\+CE}~0x00
+\item 
+\#define \hyperlink{colorSensor_8h_a6ade3980ade53e90e688916212688281}{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+I\+NC}~0x20
+\item 
+\#define \hyperlink{colorSensor_8h_a1599c80be0f8318e5bb8b1ba69c076f7}{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+E\+N\+A\+B\+LE}~0x00
+\item 
+\#define \hyperlink{colorSensor_8h_a90e4e314713e5453fc71b31788f7f6dc}{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+A\+T\+I\+ME}~0x01
+\item 
+\#define \hyperlink{colorSensor_8h_a6d186b50af4561378508a4f594e3bb9a}{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+W\+T\+I\+ME}~0x03
+\item 
+\#define \hyperlink{colorSensor_8h_a521a5943cbeff2436d97a825f73ff735}{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+A\+I\+L\+TL}~0x04
+\item 
+\#define \hyperlink{colorSensor_8h_ab66be2c885b3b30f8817f8b40db05717}{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+A\+I\+L\+TH}~0x05
+\item 
+\#define \hyperlink{colorSensor_8h_a8b3c59f95f915b7910d95d12d6c98294}{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+A\+I\+H\+TL}~0x06
+\item 
+\#define \hyperlink{colorSensor_8h_ade5ab6415b0ae40c662929cd8fcc988e}{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+A\+I\+H\+TH}~0x07
+\item 
+\#define \hyperlink{colorSensor_8h_a9b7348d15e45d2d84c2dbc9963937b45}{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+P\+E\+RS}~0x0C
+\item 
+\#define \hyperlink{colorSensor_8h_a9b95e1556fcb8168884472b8d4fa0837}{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+O\+N\+F\+IG}~0x0D
+\item 
+\#define \hyperlink{colorSensor_8h_af7d946bb0f306d5d6e44391a4381ccc6}{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+O\+N\+T\+R\+OL}~0x0F
+\item 
+\#define \hyperlink{colorSensor_8h_a73773e44f564733a8707bba6387f0499}{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+ID}~0x12
+\item 
+\#define \hyperlink{colorSensor_8h_a72ea5a22b44e896033c44c96f5852f88}{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+S\+T\+A\+T\+US}~0x13
+\item 
+\#define \hyperlink{colorSensor_8h_a1e243b5efc30e5e897549a0d390b4932}{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+D\+A\+T\+AL}~0x14
+\item 
+\#define \hyperlink{colorSensor_8h_a4c4df7dab414f781bf2a882fad49a8df}{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+D\+A\+T\+AH}~0x15
+\item 
+\#define \hyperlink{colorSensor_8h_a83387249482b2dbd934a1353d615e5f4}{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+R\+D\+A\+T\+AL}~0x16
+\item 
+\#define \hyperlink{colorSensor_8h_aafdd4b0da2356087b5f56b83865c64ed}{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+R\+D\+A\+T\+AH}~0x17
+\item 
+\#define \hyperlink{colorSensor_8h_aea8659d64c6b794277b3688aa4e17417}{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+G\+D\+A\+T\+AL}~0x18
+\item 
+\#define \hyperlink{colorSensor_8h_aaa1ffd51b684c2634c3993faa7387dca}{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+G\+D\+A\+T\+AH}~0x19
+\item 
+\#define \hyperlink{colorSensor_8h_a928d1baa8a5440f3defc1214d080058a}{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+B\+D\+A\+T\+AL}~0x1A
+\item 
+\#define \hyperlink{colorSensor_8h_a6cbd1074652a01b15b440808ea5a0239}{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+B\+D\+A\+T\+AH}~0x1B
+\item 
+\#define \hyperlink{colorSensor_8h_a788035f03e452c41055ddcfebb40d163}{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+GA}~1
+\item 
+\#define \hyperlink{colorSensor_8h_a628ed3f112699765f0fa36f5f38c77d3}{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+DF}~310
+\item 
+\#define \hyperlink{colorSensor_8h_a25931c3d7ab21bfbfffc55582fcd5c0f}{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+R\+\_\+\+C\+O\+EF}~0.\+136f
+\item 
+\#define \hyperlink{colorSensor_8h_a2b02c79f60614bc41244684cf3da3fb2}{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+G\+\_\+\+C\+O\+EF}~1
+\item 
+\#define \hyperlink{colorSensor_8h_a236fa009169ce7376bc9ad08d97a7fca}{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+B\+\_\+\+C\+O\+EF}~-\/0.\+444
+\item 
+\#define \hyperlink{colorSensor_8h_a257ef1e4bbc289731b30cce9f8e8dbba}{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+T\+\_\+\+C\+O\+EF}~3810
+\item 
+\#define \hyperlink{colorSensor_8h_a066a9e81a879aeffcc395e5f7d59c76f}{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+T\+\_\+\+O\+FF}~1391
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{colorSensor_8h_a98d00cbfc6cb3d3c72b859da7b824628}{cs\+\_\+init} ()
+\begin{DoxyCompactList}\small\item\em Initializes the color sensor in periodic read mode. \end{DoxyCompactList}\item 
+int \hyperlink{colorSensor_8h_a77b0ffd46a52dbb4294fd7924f608de7}{cs\+\_\+read\+\_\+clear\+\_\+corrected} (\hyperlink{structrgb__color__t}{rgb\+\_\+color\+\_\+t} $\ast$color)
+\begin{DoxyCompactList}\small\item\em Read the color and clear correct it. \end{DoxyCompactList}\item 
+int \hyperlink{colorSensor_8h_af9d8deea040144d0382bfa8b3ca1462f}{cs\+\_\+read\+\_\+raw} (\hyperlink{structrgb__color__t}{rgb\+\_\+color\+\_\+t} $\ast$color)
+\begin{DoxyCompactList}\small\item\em Read the color raw. \end{DoxyCompactList}\item 
+void \hyperlink{colorSensor_8h_adf8a27fabd9c693ff2e247415945ea0e}{cs\+\_\+read\+\_\+complete} (\hyperlink{structcomplete__color__t}{complete\+\_\+color\+\_\+t} $\ast$color)
+\begin{DoxyCompactList}\small\item\em Read the color and calculate all the parameters. \end{DoxyCompactList}\item 
+void \hyperlink{colorSensor_8h_a8a960d450999b5c49697c155c3364fbb}{cs\+\_\+close} ()
+\begin{DoxyCompactList}\small\item\em Controlledly closes the sensor object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{colorSensor_8h_ade5ab6415b0ae40c662929cd8fcc988e}\label{colorSensor_8h_ade5ab6415b0ae40c662929cd8fcc988e}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+A\+I\+H\+TH@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+A\+I\+H\+TH}}
+\index{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+A\+I\+H\+TH@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+A\+I\+H\+TH}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+A\+I\+H\+TH}{COLOR\_SENSOR\_AIHTH}}
+{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+A\+I\+H\+TH~0x07}
+
+\mbox{\Hypertarget{colorSensor_8h_a8b3c59f95f915b7910d95d12d6c98294}\label{colorSensor_8h_a8b3c59f95f915b7910d95d12d6c98294}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+A\+I\+H\+TL@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+A\+I\+H\+TL}}
+\index{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+A\+I\+H\+TL@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+A\+I\+H\+TL}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+A\+I\+H\+TL}{COLOR\_SENSOR\_AIHTL}}
+{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+A\+I\+H\+TL~0x06}
+
+\mbox{\Hypertarget{colorSensor_8h_ab66be2c885b3b30f8817f8b40db05717}\label{colorSensor_8h_ab66be2c885b3b30f8817f8b40db05717}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+A\+I\+L\+TH@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+A\+I\+L\+TH}}
+\index{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+A\+I\+L\+TH@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+A\+I\+L\+TH}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+A\+I\+L\+TH}{COLOR\_SENSOR\_AILTH}}
+{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+A\+I\+L\+TH~0x05}
+
+\mbox{\Hypertarget{colorSensor_8h_a521a5943cbeff2436d97a825f73ff735}\label{colorSensor_8h_a521a5943cbeff2436d97a825f73ff735}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+A\+I\+L\+TL@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+A\+I\+L\+TL}}
+\index{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+A\+I\+L\+TL@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+A\+I\+L\+TL}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+A\+I\+L\+TL}{COLOR\_SENSOR\_AILTL}}
+{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+A\+I\+L\+TL~0x04}
+
+\mbox{\Hypertarget{colorSensor_8h_a90e4e314713e5453fc71b31788f7f6dc}\label{colorSensor_8h_a90e4e314713e5453fc71b31788f7f6dc}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+A\+T\+I\+ME@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+A\+T\+I\+ME}}
+\index{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+A\+T\+I\+ME@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+A\+T\+I\+ME}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+A\+T\+I\+ME}{COLOR\_SENSOR\_ATIME}}
+{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+A\+T\+I\+ME~0x01}
+
+\mbox{\Hypertarget{colorSensor_8h_a236fa009169ce7376bc9ad08d97a7fca}\label{colorSensor_8h_a236fa009169ce7376bc9ad08d97a7fca}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+B\+\_\+\+C\+O\+EF@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+B\+\_\+\+C\+O\+EF}}
+\index{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+B\+\_\+\+C\+O\+EF@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+B\+\_\+\+C\+O\+EF}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+B\+\_\+\+C\+O\+EF}{COLOR\_SENSOR\_B\_COEF}}
+{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+B\+\_\+\+C\+O\+EF~-\/0.\+444}
+
+\mbox{\Hypertarget{colorSensor_8h_a6cbd1074652a01b15b440808ea5a0239}\label{colorSensor_8h_a6cbd1074652a01b15b440808ea5a0239}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+B\+D\+A\+T\+AH@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+B\+D\+A\+T\+AH}}
+\index{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+B\+D\+A\+T\+AH@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+B\+D\+A\+T\+AH}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+B\+D\+A\+T\+AH}{COLOR\_SENSOR\_BDATAH}}
+{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+B\+D\+A\+T\+AH~0x1B}
+
+\mbox{\Hypertarget{colorSensor_8h_a928d1baa8a5440f3defc1214d080058a}\label{colorSensor_8h_a928d1baa8a5440f3defc1214d080058a}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+B\+D\+A\+T\+AL@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+B\+D\+A\+T\+AL}}
+\index{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+B\+D\+A\+T\+AL@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+B\+D\+A\+T\+AL}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+B\+D\+A\+T\+AL}{COLOR\_SENSOR\_BDATAL}}
+{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+B\+D\+A\+T\+AL~0x1A}
+
+\mbox{\Hypertarget{colorSensor_8h_a4c4df7dab414f781bf2a882fad49a8df}\label{colorSensor_8h_a4c4df7dab414f781bf2a882fad49a8df}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+D\+A\+T\+AH@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+D\+A\+T\+AH}}
+\index{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+D\+A\+T\+AH@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+D\+A\+T\+AH}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+D\+A\+T\+AH}{COLOR\_SENSOR\_CDATAH}}
+{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+D\+A\+T\+AH~0x15}
+
+\mbox{\Hypertarget{colorSensor_8h_a1e243b5efc30e5e897549a0d390b4932}\label{colorSensor_8h_a1e243b5efc30e5e897549a0d390b4932}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+D\+A\+T\+AL@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+D\+A\+T\+AL}}
+\index{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+D\+A\+T\+AL@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+D\+A\+T\+AL}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+D\+A\+T\+AL}{COLOR\_SENSOR\_CDATAL}}
+{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+D\+A\+T\+AL~0x14}
+
+\mbox{\Hypertarget{colorSensor_8h_a2c1a60a3b3c45782008d0b48d35dc2d8}\label{colorSensor_8h_a2c1a60a3b3c45782008d0b48d35dc2d8}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+O\+M\+M\+A\+ND@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+O\+M\+M\+A\+ND}}
+\index{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+O\+M\+M\+A\+ND@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+O\+M\+M\+A\+ND}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+O\+M\+M\+A\+ND}{COLOR\_SENSOR\_COMMAND}}
+{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+O\+M\+M\+A\+ND~0x80}
+
+\mbox{\Hypertarget{colorSensor_8h_a9b95e1556fcb8168884472b8d4fa0837}\label{colorSensor_8h_a9b95e1556fcb8168884472b8d4fa0837}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+O\+N\+F\+IG@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+O\+N\+F\+IG}}
+\index{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+O\+N\+F\+IG@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+O\+N\+F\+IG}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+O\+N\+F\+IG}{COLOR\_SENSOR\_CONFIG}}
+{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+O\+N\+F\+IG~0x0D}
+
+\mbox{\Hypertarget{colorSensor_8h_af7d946bb0f306d5d6e44391a4381ccc6}\label{colorSensor_8h_af7d946bb0f306d5d6e44391a4381ccc6}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+O\+N\+T\+R\+OL@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+O\+N\+T\+R\+OL}}
+\index{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+O\+N\+T\+R\+OL@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+O\+N\+T\+R\+OL}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+O\+N\+T\+R\+OL}{COLOR\_SENSOR\_CONTROL}}
+{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+O\+N\+T\+R\+OL~0x0F}
+
+\mbox{\Hypertarget{colorSensor_8h_a257ef1e4bbc289731b30cce9f8e8dbba}\label{colorSensor_8h_a257ef1e4bbc289731b30cce9f8e8dbba}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+T\+\_\+\+C\+O\+EF@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+T\+\_\+\+C\+O\+EF}}
+\index{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+T\+\_\+\+C\+O\+EF@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+T\+\_\+\+C\+O\+EF}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+T\+\_\+\+C\+O\+EF}{COLOR\_SENSOR\_CT\_COEF}}
+{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+T\+\_\+\+C\+O\+EF~3810}
+
+\mbox{\Hypertarget{colorSensor_8h_a066a9e81a879aeffcc395e5f7d59c76f}\label{colorSensor_8h_a066a9e81a879aeffcc395e5f7d59c76f}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+T\+\_\+\+O\+FF@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+T\+\_\+\+O\+FF}}
+\index{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+T\+\_\+\+O\+FF@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+T\+\_\+\+O\+FF}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+T\+\_\+\+O\+FF}{COLOR\_SENSOR\_CT\_OFF}}
+{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+C\+T\+\_\+\+O\+FF~1391}
+
+\mbox{\Hypertarget{colorSensor_8h_a628ed3f112699765f0fa36f5f38c77d3}\label{colorSensor_8h_a628ed3f112699765f0fa36f5f38c77d3}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+DF@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+DF}}
+\index{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+DF@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+DF}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+DF}{COLOR\_SENSOR\_DF}}
+{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+DF~310}
+
+\mbox{\Hypertarget{colorSensor_8h_a1599c80be0f8318e5bb8b1ba69c076f7}\label{colorSensor_8h_a1599c80be0f8318e5bb8b1ba69c076f7}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+E\+N\+A\+B\+LE@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+E\+N\+A\+B\+LE}}
+\index{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+E\+N\+A\+B\+LE@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+E\+N\+A\+B\+LE}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+E\+N\+A\+B\+LE}{COLOR\_SENSOR\_ENABLE}}
+{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+E\+N\+A\+B\+LE~0x00}
+
+\mbox{\Hypertarget{colorSensor_8h_a2b02c79f60614bc41244684cf3da3fb2}\label{colorSensor_8h_a2b02c79f60614bc41244684cf3da3fb2}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+G\+\_\+\+C\+O\+EF@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+G\+\_\+\+C\+O\+EF}}
+\index{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+G\+\_\+\+C\+O\+EF@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+G\+\_\+\+C\+O\+EF}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+G\+\_\+\+C\+O\+EF}{COLOR\_SENSOR\_G\_COEF}}
+{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+G\+\_\+\+C\+O\+EF~1}
+
+\mbox{\Hypertarget{colorSensor_8h_a788035f03e452c41055ddcfebb40d163}\label{colorSensor_8h_a788035f03e452c41055ddcfebb40d163}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+GA@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+GA}}
+\index{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+GA@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+GA}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+GA}{COLOR\_SENSOR\_GA}}
+{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+GA~1}
+
+\mbox{\Hypertarget{colorSensor_8h_aaa1ffd51b684c2634c3993faa7387dca}\label{colorSensor_8h_aaa1ffd51b684c2634c3993faa7387dca}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+G\+D\+A\+T\+AH@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+G\+D\+A\+T\+AH}}
+\index{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+G\+D\+A\+T\+AH@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+G\+D\+A\+T\+AH}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+G\+D\+A\+T\+AH}{COLOR\_SENSOR\_GDATAH}}
+{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+G\+D\+A\+T\+AH~0x19}
+
+\mbox{\Hypertarget{colorSensor_8h_aea8659d64c6b794277b3688aa4e17417}\label{colorSensor_8h_aea8659d64c6b794277b3688aa4e17417}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+G\+D\+A\+T\+AL@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+G\+D\+A\+T\+AL}}
+\index{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+G\+D\+A\+T\+AL@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+G\+D\+A\+T\+AL}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+G\+D\+A\+T\+AL}{COLOR\_SENSOR\_GDATAL}}
+{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+G\+D\+A\+T\+AL~0x18}
+
+\mbox{\Hypertarget{colorSensor_8h_a29054016a6feea652c2cc21dc8675a7e}\label{colorSensor_8h_a29054016a6feea652c2cc21dc8675a7e}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+I2\+C\+\_\+\+D\+E\+V\+I\+CE@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+I2\+C\+\_\+\+D\+E\+V\+I\+CE}}
+\index{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+I2\+C\+\_\+\+D\+E\+V\+I\+CE@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+I2\+C\+\_\+\+D\+E\+V\+I\+CE}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+I2\+C\+\_\+\+D\+E\+V\+I\+CE}{COLOR\_SENSOR\_I2C\_DEVICE}}
+{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+I2\+C\+\_\+\+D\+E\+V\+I\+CE~\char`\"{}/dev/i2c-\/1\char`\"{}}
+
+\mbox{\Hypertarget{colorSensor_8h_a73773e44f564733a8707bba6387f0499}\label{colorSensor_8h_a73773e44f564733a8707bba6387f0499}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+ID@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+ID}}
+\index{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+ID@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+ID}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+ID}{COLOR\_SENSOR\_ID}}
+{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+ID~0x12}
+
+\mbox{\Hypertarget{colorSensor_8h_a6ade3980ade53e90e688916212688281}\label{colorSensor_8h_a6ade3980ade53e90e688916212688281}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+I\+NC@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+I\+NC}}
+\index{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+I\+NC@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+I\+NC}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+I\+NC}{COLOR\_SENSOR\_INC}}
+{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+I\+NC~0x20}
+
+\mbox{\Hypertarget{colorSensor_8h_ab53e2cd3502c808ce7a99285bac868cc}\label{colorSensor_8h_ab53e2cd3502c808ce7a99285bac868cc}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+O\+N\+CE@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+O\+N\+CE}}
+\index{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+O\+N\+CE@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+O\+N\+CE}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+O\+N\+CE}{COLOR\_SENSOR\_ONCE}}
+{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+O\+N\+CE~0x00}
+
+\mbox{\Hypertarget{colorSensor_8h_a9b7348d15e45d2d84c2dbc9963937b45}\label{colorSensor_8h_a9b7348d15e45d2d84c2dbc9963937b45}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+P\+E\+RS@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+P\+E\+RS}}
+\index{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+P\+E\+RS@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+P\+E\+RS}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+P\+E\+RS}{COLOR\_SENSOR\_PERS}}
+{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+P\+E\+RS~0x0C}
+
+\mbox{\Hypertarget{colorSensor_8h_a25931c3d7ab21bfbfffc55582fcd5c0f}\label{colorSensor_8h_a25931c3d7ab21bfbfffc55582fcd5c0f}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+R\+\_\+\+C\+O\+EF@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+R\+\_\+\+C\+O\+EF}}
+\index{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+R\+\_\+\+C\+O\+EF@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+R\+\_\+\+C\+O\+EF}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+R\+\_\+\+C\+O\+EF}{COLOR\_SENSOR\_R\_COEF}}
+{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+R\+\_\+\+C\+O\+EF~0.\+136f}
+
+\mbox{\Hypertarget{colorSensor_8h_aafdd4b0da2356087b5f56b83865c64ed}\label{colorSensor_8h_aafdd4b0da2356087b5f56b83865c64ed}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+R\+D\+A\+T\+AH@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+R\+D\+A\+T\+AH}}
+\index{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+R\+D\+A\+T\+AH@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+R\+D\+A\+T\+AH}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+R\+D\+A\+T\+AH}{COLOR\_SENSOR\_RDATAH}}
+{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+R\+D\+A\+T\+AH~0x17}
+
+\mbox{\Hypertarget{colorSensor_8h_a83387249482b2dbd934a1353d615e5f4}\label{colorSensor_8h_a83387249482b2dbd934a1353d615e5f4}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+R\+D\+A\+T\+AL@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+R\+D\+A\+T\+AL}}
+\index{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+R\+D\+A\+T\+AL@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+R\+D\+A\+T\+AL}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+R\+D\+A\+T\+AL}{COLOR\_SENSOR\_RDATAL}}
+{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+R\+D\+A\+T\+AL~0x16}
+
+\mbox{\Hypertarget{colorSensor_8h_a7ac144fbb22a44749e5071fc8a3768f8}\label{colorSensor_8h_a7ac144fbb22a44749e5071fc8a3768f8}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+S\+L\+A\+V\+E\+\_\+\+A\+D\+D\+R\+E\+SS@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+S\+L\+A\+V\+E\+\_\+\+A\+D\+D\+R\+E\+SS}}
+\index{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+S\+L\+A\+V\+E\+\_\+\+A\+D\+D\+R\+E\+SS@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+S\+L\+A\+V\+E\+\_\+\+A\+D\+D\+R\+E\+SS}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+S\+L\+A\+V\+E\+\_\+\+A\+D\+D\+R\+E\+SS}{COLOR\_SENSOR\_SLAVE\_ADDRESS}}
+{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+S\+L\+A\+V\+E\+\_\+\+A\+D\+D\+R\+E\+SS~0x29}
+
+\mbox{\Hypertarget{colorSensor_8h_a72ea5a22b44e896033c44c96f5852f88}\label{colorSensor_8h_a72ea5a22b44e896033c44c96f5852f88}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+S\+T\+A\+T\+US@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+S\+T\+A\+T\+US}}
+\index{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+S\+T\+A\+T\+US@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+S\+T\+A\+T\+US}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+S\+T\+A\+T\+US}{COLOR\_SENSOR\_STATUS}}
+{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+S\+T\+A\+T\+US~0x13}
+
+\mbox{\Hypertarget{colorSensor_8h_a6d186b50af4561378508a4f594e3bb9a}\label{colorSensor_8h_a6d186b50af4561378508a4f594e3bb9a}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+W\+T\+I\+ME@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+W\+T\+I\+ME}}
+\index{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+W\+T\+I\+ME@{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+W\+T\+I\+ME}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+W\+T\+I\+ME}{COLOR\_SENSOR\_WTIME}}
+{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+W\+T\+I\+ME~0x03}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{colorSensor_8h_a8a960d450999b5c49697c155c3364fbb}\label{colorSensor_8h_a8a960d450999b5c49697c155c3364fbb}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!cs\+\_\+close@{cs\+\_\+close}}
+\index{cs\+\_\+close@{cs\+\_\+close}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{cs\+\_\+close()}{cs\_close()}}
+{\footnotesize\ttfamily void cs\+\_\+close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Controlledly closes the sensor object. 
+
+\mbox{\Hypertarget{colorSensor_8h_a98d00cbfc6cb3d3c72b859da7b824628}\label{colorSensor_8h_a98d00cbfc6cb3d3c72b859da7b824628}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!cs\+\_\+init@{cs\+\_\+init}}
+\index{cs\+\_\+init@{cs\+\_\+init}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{cs\+\_\+init()}{cs\_init()}}
+{\footnotesize\ttfamily void cs\+\_\+init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes the color sensor in periodic read mode. 
+
+\mbox{\Hypertarget{colorSensor_8h_a77b0ffd46a52dbb4294fd7924f608de7}\label{colorSensor_8h_a77b0ffd46a52dbb4294fd7924f608de7}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!cs\+\_\+read\+\_\+clear\+\_\+corrected@{cs\+\_\+read\+\_\+clear\+\_\+corrected}}
+\index{cs\+\_\+read\+\_\+clear\+\_\+corrected@{cs\+\_\+read\+\_\+clear\+\_\+corrected}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{cs\+\_\+read\+\_\+clear\+\_\+corrected()}{cs\_read\_clear\_corrected()}}
+{\footnotesize\ttfamily int cs\+\_\+read\+\_\+clear\+\_\+corrected (\begin{DoxyParamCaption}\item[{\hyperlink{structrgb__color__t}{rgb\+\_\+color\+\_\+t} $\ast$}]{color }\end{DoxyParamCaption})}
+
+
+
+Read the color and clear correct it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & Pointer to the structure to store the color information \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+(int) Exit code of the operation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{colorSensor_8h_adf8a27fabd9c693ff2e247415945ea0e}\label{colorSensor_8h_adf8a27fabd9c693ff2e247415945ea0e}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!cs\+\_\+read\+\_\+complete@{cs\+\_\+read\+\_\+complete}}
+\index{cs\+\_\+read\+\_\+complete@{cs\+\_\+read\+\_\+complete}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{cs\+\_\+read\+\_\+complete()}{cs\_read\_complete()}}
+{\footnotesize\ttfamily void cs\+\_\+read\+\_\+complete (\begin{DoxyParamCaption}\item[{\hyperlink{structcomplete__color__t}{complete\+\_\+color\+\_\+t} $\ast$}]{color }\end{DoxyParamCaption})}
+
+
+
+Read the color and calculate all the parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & Pointer to the structure to store the color information \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{colorSensor_8h_af9d8deea040144d0382bfa8b3ca1462f}\label{colorSensor_8h_af9d8deea040144d0382bfa8b3ca1462f}} 
+\index{color\+Sensor.\+h@{color\+Sensor.\+h}!cs\+\_\+read\+\_\+raw@{cs\+\_\+read\+\_\+raw}}
+\index{cs\+\_\+read\+\_\+raw@{cs\+\_\+read\+\_\+raw}!color\+Sensor.\+h@{color\+Sensor.\+h}}
+\subsubsection{\texorpdfstring{cs\+\_\+read\+\_\+raw()}{cs\_read\_raw()}}
+{\footnotesize\ttfamily int cs\+\_\+read\+\_\+raw (\begin{DoxyParamCaption}\item[{\hyperlink{structrgb__color__t}{rgb\+\_\+color\+\_\+t} $\ast$}]{color }\end{DoxyParamCaption})}
+
+
+
+Read the color raw. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & Pointer to the structure to store the color information \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+(int) Exit code of the operation 
+\end{DoxyReturn}
