@@ -9,20 +9,24 @@
 #include <pthread.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <termios.h>
 
 #include "Accelerometer/accelerometer.h"
 #include "ColorSensor/colorSensor.h"
 
 static volatile int gb_stop = 0;
-static pthread_mutex_t g_stop_mutex  = PTHREAD_MUTEX_INITIALIZER;
-static pthread_mutex_t g_acc_mutex   = PTHREAD_MUTEX_INITIALIZER;
-static pthread_mutex_t g_color_mutex = PTHREAD_MUTEX_INITIALIZER;
-static pthread_mutex_t g_data_mutex  = PTHREAD_MUTEX_INITIALIZER;
-static pthread_cond_t g_stop_cond    = PTHREAD_COND_INITIALIZER;
-static pthread_cond_t g_data_cond    = PTHREAD_COND_INITIALIZER;
+static pthread_mutex_t g_stop_mutex  		= PTHREAD_MUTEX_INITIALIZER;
+static pthread_mutex_t g_acc_mutex   		= PTHREAD_MUTEX_INITIALIZER;
+static pthread_mutex_t g_color_mutex 		= PTHREAD_MUTEX_INITIALIZER;
+static pthread_mutex_t g_color_format_mutex = PTHREAD_MUTEX_INITIALIZER;
+static pthread_mutex_t g_data_mutex  		= PTHREAD_MUTEX_INITIALIZER;
+
+static pthread_cond_t g_stop_cond    		= PTHREAD_COND_INITIALIZER;
+static pthread_cond_t g_data_cond    		= PTHREAD_COND_INITIALIZER;
 
 static acc_t        g_acceleration;
 static color_t      g_rgb_color;
+static volatile int gb_hsv_color = 0;
 static volatile int gb_data_ready = 0;
 
 static sigset_t g_stopsignals;
@@ -33,12 +37,24 @@ static sigset_t g_stopsignals;
  * @return (int) Stop flag. 1 if the threads should exit.
  */
 static inline int get_stop() {
-	// pthread_sigmask(SIG_BLOCK, &g_stopsignals, NULL);
+	pthread_sigmask(SIG_BLOCK, &g_stopsignals, NULL);
 	pthread_mutex_lock(&g_stop_mutex);
 	int tmp_stop = gb_stop;
 	pthread_mutex_unlock(&g_stop_mutex);
-	// pthread_sigmask(SIG_UNBLOCK, &g_stopsignals, NULL);
+	pthread_sigmask(SIG_UNBLOCK, &g_stopsignals, NULL);
 	return tmp_stop;
+}
+
+/**
+ * @brief Sets the stop flag and broadcasts to every thread
+ */
+void stop() {
+	#ifdef DEBUG
+		printf("[DEBUG] Stopping the program");
+	#endif
+	gb_stop = 1;
+	pthread_cond_broadcast(&g_stop_cond);
+	pthread_cond_broadcast(&g_data_cond);
 }
 
 /**
@@ -50,9 +66,7 @@ void sigint_isr(int signal) {
 	#ifdef DEBUG
 		printf("[DEBUG] SIGINT received\n");
 	#endif
-	gb_stop = 1;
-	pthread_cond_broadcast(&g_stop_cond);
-	pthread_cond_broadcast(&g_data_cond);
+	stop();
 }
 
 /**
@@ -140,7 +154,7 @@ void* display_thread_fn(void *ptr) {
 		printf("[DEBUG] Begin of display thread\n");
 	#endif
 
-	printf("Raspberry Pi sensing application - By David Andrino and Fernando Sanz\n\n\n\n\n\n\n\n");
+	printf("Raspberry Pi sensing application - By David Andrino and Fernando Sanz. Press q to quit or c to change color format\n\n\n\n\n\n\n\n");
 	while (!get_stop()) {
 		pthread_mutex_lock(&g_data_mutex);
 			int tmpstop;
@@ -162,13 +176,21 @@ void* display_thread_fn(void *ptr) {
 				"\tX: %.02f\n"
 				"\tY: %.02f\n"
 				"\tZ: %.02f\n"
-				"\033[38;2;%d;%d;%dmColor:\n"
-				"\tR: %03d\n"
-				"\tG: %03d\n"
-				"\tB: %03d",
+				"\033[38;2;%d;%d;%dmColor:\n",
 				g_acceleration.x, g_acceleration.y, g_acceleration.z,
-				g_rgb_color.r, g_rgb_color.g, g_rgb_color.b,
 				g_rgb_color.r, g_rgb_color.g, g_rgb_color.b);
+				pthread_mutex_lock(&g_color_format_mutex);
+				if (!gb_hsv_color) printf(
+					"\tR: %03d \n"
+					"\tG: %03d \n"
+					"\tB: %03d \033[0m",
+					g_rgb_color.r, g_rgb_color.g, g_rgb_color.b); 
+				else printf(
+					"\tH: %03d\n"
+					"\tS: %.02f\n"
+					"\tV: %.02f\033[0m",
+					g_rgb_color.h, g_rgb_color.s, g_rgb_color.v);
+				pthread_mutex_unlock(&g_color_format_mutex);
             #endif
 
 			pthread_mutex_unlock(&g_acc_mutex);
@@ -181,7 +203,7 @@ void* display_thread_fn(void *ptr) {
 
 	printf("\033[7A\r");
 	for (int i = 0; i < 8; i++) printf("                                    \n");
-	printf("\033[7A\rApplication succesfully ended\n");
+	printf("\033[8A\rApplication succesfully ended\n");
 	#ifdef DEBUG
 		printf("[DEBUG] End of display thread\n");
 	#endif
@@ -198,27 +220,42 @@ void* input_thread_fn(void *ptr) {
 	#ifdef DEBUG
 		printf("[DEBUG] Begin of input thread\n");
 	#endif
+	// Make getc not wait for intro
+    struct termios originaltattr, tattr;
+    tcgetattr(STDIN_FILENO, &originaltattr);
+    tcgetattr(STDIN_FILENO, &tattr);
+    tattr.c_lflag &= ~(ICANON | ECHO);
+    tattr.c_cc[VMIN] = 1;
+    tattr.c_cc[VTIME] = 0;
+    tcsetattr(STDIN_FILENO, TCSAFLUSH, &tattr);
 
 	while (!get_stop()) {
-		/* char c = getc(stdin);
-		switch (c) {
-			case 'q': 
-				pthread_sigmask(SIG_BLOCK, &g_stopsignals, NULL);
-				pthread_mutex_lock(&g_stop_mutex);
-				int gb_stop = 1;
-				pthread_mutex_unlock(&g_stop_mutex);
-				pthread_sigmask(SIG_UNBLOCK, &g_stopsignals, NULL);
-				break;
-			default:
-				printf("\033[F\033[F\033[F\033[F\033[F\033[F\033[F\033[F\rPressed %c\n\n\n\n\n\n\n", c);
-				break;
-		} */
-        usleep(500000);
+		char c = getchar();
+		#ifdef DEBUG
+			printf("[DEBUG] Pressed %c\n", c);
+		#else
+			switch(c) {
+				case 'q': 
+					pthread_mutex_lock(&g_stop_mutex);
+					stop();
+					pthread_mutex_unlock(&g_stop_mutex);
+					break;
+				case 'c':
+					pthread_mutex_lock(&g_color_format_mutex);
+						gb_hsv_color = !gb_hsv_color;
+					pthread_mutex_unlock(&g_color_format_mutex);
+				default:
+					break;
+			}
+		#endif
 	}
 
 	#ifdef DEBUG
 		printf("[DEBUG] End of input thread\n");
 	#endif
+
+	// Restore terminal behaviour
+    tcsetattr(STDIN_FILENO, TCSANOW, &tattr);
 
 	pthread_exit(NULL);
 }

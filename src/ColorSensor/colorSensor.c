@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <math.h>
 #include <sys/ioctl.h>
 #include <linux/i2c.h>
 #include <linux/i2c-dev.h>
@@ -15,6 +16,7 @@
 static int g_fd;
 
 void cs_write_register(uint8_t reg, uint8_t data);
+static void calculate_hsv(color_t* color);
 
 static void cs_read_raw_registers(uint16_t* r, uint16_t* g, uint16_t* b, uint16_t* c) {
     uint8_t reading[8];

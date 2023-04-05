@@ -71,8 +71,8 @@ void acc_read(acc_t* acc) {
         printf("[DEBUG] Read %02X\n", reading[5]);
     #endif
 
-	acc->x = (((int16_t)(reading[0] << 8 | reading[1])) / 16384.0);
-	acc->y = (((int16_t)(reading[2] << 8 | reading[3])) / 16384.0);
+	acc->x = -(((int16_t)(reading[0] << 8 | reading[1])) / 16384.0);
+	acc->y = -(((int16_t)(reading[2] << 8 | reading[3])) / 16384.0);
 	acc->z = -(((int16_t)(reading[4] << 8 | reading[5])) / 16384.0);
 }
 
