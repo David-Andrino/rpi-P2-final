@@ -1,8 +1,7 @@
-/*
- *  main.c - Main file of the project
- *
- *  Created on: Mar 21/2023
- *      Author: David Andrino & Fernando Sanz
+/**
+ * @brief Main file of the project.
+ * @date March 21st of 2023
+ * @authors David Andrino, Fernando Sanz
  */
 #include <stdio.h>
 #include <stdint.h>
@@ -30,8 +29,10 @@ static volatile int gb_data_ready = 0;
 static sigset_t g_stopsignals;
 
 /**
- * Thread safe get of the g_stop variable
-*/
+ * @brief Get the stop flag, thread safe
+ * 
+ * @return (int) Stop flag. 1 if the threads should exit.
+ */
 static inline int get_stop() {
 	// pthread_sigmask(SIG_BLOCK, &g_stopsignals, NULL);
 	pthread_mutex_lock(&g_stop_mutex);
@@ -41,6 +42,11 @@ static inline int get_stop() {
 	return tmp_stop;
 }
 
+/**
+ * @brief ISR for the SIGINT signal. Sets the stop flag to 1 and notifies all sleeping threads
+ * 
+ * @param signal Signal identifier
+ */
 void sigint_isr(int signal) {
 	#ifdef DEBUG
 		printf("[DEBUG] SIGINT received\n");
@@ -50,6 +56,12 @@ void sigint_isr(int signal) {
 	pthread_cond_broadcast(&g_data_cond);
 }
 
+/**
+ * @brief Thread for the acceleration sensor. Starts the sensor and periodically polls its content. When the stop flag is set, closes the sensor. 
+ * 
+ * @param ptr Not used
+ * @return (void*) Not used
+ */
 void* acc_thread_fn(void *ptr) {
 	#ifdef DEBUG
 		printf("[DEBUG] Begin of acceleration thread\n");
@@ -81,6 +93,12 @@ void* acc_thread_fn(void *ptr) {
 	pthread_exit(NULL);
 }
 
+/**
+ * @brief Thread for the color sensor. Starts the sensor and periodically polls its content. When the stop flag is set, closes the sensor. 
+ * 
+ * @param ptr Not used
+ * @return (void*) Not used
+ */
 void* color_thread_fn(void *ptr) {
 	#ifdef DEBUG
 		printf("[DEBUG] Begin of color thread\n");
@@ -112,6 +130,12 @@ void* color_thread_fn(void *ptr) {
 	pthread_exit(NULL);
 }
 
+/**
+ * @brief Display thread. When there is data ready, prints it to the screen. When the stop flag is set, prints the exit message.
+ * 
+ * @param ptr Not used
+ * @return (void*) Not used
+ */
 void* display_thread_fn(void *ptr) {
 	#ifdef DEBUG
 		printf("[DEBUG] Begin of display thread\n");
@@ -165,6 +189,12 @@ void* display_thread_fn(void *ptr) {
 	pthread_exit(NULL);
 }
 
+/**
+ * @brief Thread to take and process user input. 
+ * 
+ * @param ptr Not used
+ * @return (void*) Not used
+ */
 void* input_thread_fn(void *ptr) {
 	#ifdef DEBUG
 		printf("[DEBUG] Begin of input thread\n");
@@ -194,7 +224,12 @@ void* input_thread_fn(void *ptr) {
 	pthread_exit(NULL);
 }
 
-int main(int argc, char** argv) {
+/**
+ * @brief Entry point for the project. Starts all the threads and waits for them to finish to close the program.
+ * 
+ * @return (int) Exit code of the program
+ */
+int main() {
 	sigemptyset(&g_stopsignals);
 	sigaddset(&g_stopsignals, SIGINT);
 

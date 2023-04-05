@@ -39,19 +39,62 @@
 #define COLOR_SENSOR_CT_COEF 3810
 #define COLOR_SENSOR_CT_OFF  1391
 
+/**
+ * @brief Basic struct for an RGB color. Contains the three colors as unsigned 8 bits
+ */
 typedef struct {
-    uint8_t r, g, b;
+    uint8_t r; /**< R component of the color */
+    uint8_t g; /**< G component of the color */
+    uint8_t b; /**< B component of the color */
 } rgb_color_t;
 
+/**
+ * @brief Advanced color structure. Contains the rgbc color, the corrected rgb, the IR, temperature, saturation and lux values.
+ */
 typedef struct {
-    uint8_t r, g, b, c;
-    uint8_t corrected_r, corrected_g, corrected_b;
-    float   ir, temperature, saturation, lux;
+    uint8_t r; /**< R component of the color */
+    uint8_t g; /**< G component of the color */
+    uint8_t b; /**< B component of the color */
+    uint8_t c; /**< C component of the color */
+    uint8_t corrected_r; /**< Clear and IR corrected R component of the color */ 
+    uint8_t corrected_g; /**< Clear and IR corrected G component of the color */ 
+    uint8_t corrected_b; /**< Clear and IR corrected B component of the color */
+    float ir;           /**< Infrared component of the color*/ 
+    float temperature;  /**< Color temperature*/
+    float saturation;   /**< Color saturation */
+    float lux;          /**< Color lux*/
 } complete_color_t;
 
+/**
+ * @brief Initializes the color sensor in periodic read mode.
+ */
 extern void cs_init();
+
+/**
+ * @brief Read the color and clear correct it
+ * 
+ * @param color Pointer to the structure to store the color information
+ * @return (int) Exit code of the operation
+ */
 extern int  cs_read_clear_corrected(rgb_color_t* color);
+
+/**
+ * @brief Read the color raw
+ * 
+ * @param color Pointer to the structure to store the color information
+ * @return (int) Exit code of the operation
+ */
 extern int  cs_read_raw(rgb_color_t* color);
-extern void cs_read_complete(complete_color_t* params);
+
+/**
+ * @brief Read the color and calculate all the parameters
+ * 
+ * @param color Pointer to the structure to store the color information
+ */
+extern void cs_read_complete(complete_color_t* color);
+
+/**
+ * @brief Controlledly closes the sensor object
+ */
 extern void cs_close();
 #endif
