@@ -40,3 +40,6 @@ $(OUT)/accelerometer.o: $(SRC)/Accelerometer/accelerometer.c $(SRC)/Acceleromete
 	
 $(OUT)/colorSensor.o: $(SRC)/ColorSensor/colorSensor.c $(SRC)/ColorSensor/colorSensor.h outdir
 	$(GXX) -c $(FLAGS) -o $@ $<
+
+docs:
+	@doxygen >/dev/null && echo "Documentation Generated"
