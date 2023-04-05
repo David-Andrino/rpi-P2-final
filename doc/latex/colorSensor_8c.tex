@@ -10,14 +10,20 @@
 {\ttfamily \#include $<$sys/ioctl.\+h$>$}\newline
 {\ttfamily \#include $<$linux/i2c.\+h$>$}\newline
 {\ttfamily \#include $<$linux/i2c-\/dev.\+h$>$}\newline
-Include dependency graph for color\+Sensor.\+c\+:
-\nopagebreak
+Include dependency graph for color\+Sensor.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{colorSensor_8c__incl}
 \end{center}
 \end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{colorSensor_8c_ad2f3678bf5eae3684fc497130b946eae}{M\+IN}(X,  Y)~(((X) $<$ (Y)) ? (X) \+: (Y))
+\item 
+\#define \hyperlink{colorSensor_8c_aff9931d7524c88e07743af6535b20761}{M\+AX}(X,  Y)~(((X) $>$ (Y)) ? (X) \+: (Y))
+\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -27,10 +33,25 @@ void \hyperlink{colorSensor_8c_a98d00cbfc6cb3d3c72b859da7b824628}{cs\+\_\+init} 
 \begin{DoxyCompactList}\small\item\em Initializes the color sensor in periodic read mode. \end{DoxyCompactList}\item 
 void \hyperlink{colorSensor_8c_a8a960d450999b5c49697c155c3364fbb}{cs\+\_\+close} ()
 \begin{DoxyCompactList}\small\item\em Controlledly closes the sensor object. \end{DoxyCompactList}\item 
-int \hyperlink{colorSensor_8c_a77b0ffd46a52dbb4294fd7924f608de7}{cs\+\_\+read\+\_\+clear\+\_\+corrected} (\hyperlink{structrgb__color__t}{rgb\+\_\+color\+\_\+t} $\ast$color)
+int \hyperlink{colorSensor_8c_ae07874642d6dc0f27eb1521ecbfae1dc}{cs\+\_\+read\+\_\+clear\+\_\+corrected} (\hyperlink{structcolor__t}{color\+\_\+t} $\ast$color)
 \begin{DoxyCompactList}\small\item\em Read the color and clear correct it. \end{DoxyCompactList}\item 
-int \hyperlink{colorSensor_8c_af9d8deea040144d0382bfa8b3ca1462f}{cs\+\_\+read\+\_\+raw} (\hyperlink{structrgb__color__t}{rgb\+\_\+color\+\_\+t} $\ast$color)
+int \hyperlink{colorSensor_8c_a747039a0f6945a4f6fd9ee7102bbff36}{cs\+\_\+read\+\_\+raw} (\hyperlink{structcolor__t}{color\+\_\+t} $\ast$color)
 \begin{DoxyCompactList}\small\item\em Read the color raw. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{colorSensor_8c_aff9931d7524c88e07743af6535b20761}\label{colorSensor_8c_aff9931d7524c88e07743af6535b20761}} 
+\index{color\+Sensor.\+c@{color\+Sensor.\+c}!M\+AX@{M\+AX}}
+\index{M\+AX@{M\+AX}!color\+Sensor.\+c@{color\+Sensor.\+c}}
+\subsubsection{\texorpdfstring{M\+AX}{MAX}}
+{\footnotesize\ttfamily \#define M\+AX(\begin{DoxyParamCaption}\item[{}]{X,  }\item[{}]{Y }\end{DoxyParamCaption})~(((X) $>$ (Y)) ? (X) \+: (Y))}
+
+\mbox{\Hypertarget{colorSensor_8c_ad2f3678bf5eae3684fc497130b946eae}\label{colorSensor_8c_ad2f3678bf5eae3684fc497130b946eae}} 
+\index{color\+Sensor.\+c@{color\+Sensor.\+c}!M\+IN@{M\+IN}}
+\index{M\+IN@{M\+IN}!color\+Sensor.\+c@{color\+Sensor.\+c}}
+\subsubsection{\texorpdfstring{M\+IN}{MIN}}
+{\footnotesize\ttfamily \#define M\+IN(\begin{DoxyParamCaption}\item[{}]{X,  }\item[{}]{Y }\end{DoxyParamCaption})~(((X) $<$ (Y)) ? (X) \+: (Y))}
+
 
 
 \subsection{Function Documentation}
@@ -54,11 +75,11 @@ Controlledly closes the sensor object.
 
 Initializes the color sensor in periodic read mode. 
 
-\mbox{\Hypertarget{colorSensor_8c_a77b0ffd46a52dbb4294fd7924f608de7}\label{colorSensor_8c_a77b0ffd46a52dbb4294fd7924f608de7}} 
+\mbox{\Hypertarget{colorSensor_8c_ae07874642d6dc0f27eb1521ecbfae1dc}\label{colorSensor_8c_ae07874642d6dc0f27eb1521ecbfae1dc}} 
 \index{color\+Sensor.\+c@{color\+Sensor.\+c}!cs\+\_\+read\+\_\+clear\+\_\+corrected@{cs\+\_\+read\+\_\+clear\+\_\+corrected}}
 \index{cs\+\_\+read\+\_\+clear\+\_\+corrected@{cs\+\_\+read\+\_\+clear\+\_\+corrected}!color\+Sensor.\+c@{color\+Sensor.\+c}}
 \subsubsection{\texorpdfstring{cs\+\_\+read\+\_\+clear\+\_\+corrected()}{cs\_read\_clear\_corrected()}}
-{\footnotesize\ttfamily int cs\+\_\+read\+\_\+clear\+\_\+corrected (\begin{DoxyParamCaption}\item[{\hyperlink{structrgb__color__t}{rgb\+\_\+color\+\_\+t} $\ast$}]{color }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int cs\+\_\+read\+\_\+clear\+\_\+corrected (\begin{DoxyParamCaption}\item[{\hyperlink{structcolor__t}{color\+\_\+t} $\ast$}]{color }\end{DoxyParamCaption})}
 
 
 
@@ -72,11 +93,11 @@ Read the color and clear correct it.
 \begin{DoxyReturn}{Returns}
 (int) Exit code of the operation 
 \end{DoxyReturn}
-\mbox{\Hypertarget{colorSensor_8c_af9d8deea040144d0382bfa8b3ca1462f}\label{colorSensor_8c_af9d8deea040144d0382bfa8b3ca1462f}} 
+\mbox{\Hypertarget{colorSensor_8c_a747039a0f6945a4f6fd9ee7102bbff36}\label{colorSensor_8c_a747039a0f6945a4f6fd9ee7102bbff36}} 
 \index{color\+Sensor.\+c@{color\+Sensor.\+c}!cs\+\_\+read\+\_\+raw@{cs\+\_\+read\+\_\+raw}}
 \index{cs\+\_\+read\+\_\+raw@{cs\+\_\+read\+\_\+raw}!color\+Sensor.\+c@{color\+Sensor.\+c}}
 \subsubsection{\texorpdfstring{cs\+\_\+read\+\_\+raw()}{cs\_read\_raw()}}
-{\footnotesize\ttfamily int cs\+\_\+read\+\_\+raw (\begin{DoxyParamCaption}\item[{\hyperlink{structrgb__color__t}{rgb\+\_\+color\+\_\+t} $\ast$}]{color }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int cs\+\_\+read\+\_\+raw (\begin{DoxyParamCaption}\item[{\hyperlink{structcolor__t}{color\+\_\+t} $\ast$}]{color }\end{DoxyParamCaption})}
 
 
 

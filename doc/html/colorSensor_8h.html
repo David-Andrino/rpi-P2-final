@@ -77,8 +77,6 @@ $(function() {
 Include dependency graph for colorSensor.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="colorSensor_8h__incl.png" border="0" usemap="#src_2ColorSensor_2colorSensor_8h" alt=""/></div>
-<map name="src_2ColorSensor_2colorSensor_8h" id="src_2ColorSensor_2colorSensor_8h">
-</map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
@@ -94,11 +92,8 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrgb__color__t.html">rgb_color_t</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basic struct for an RGB color. Contains the three colors as unsigned 8 bits.  <a href="structrgb__color__t.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcomplete__color__t.html">complete_color_t</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Advanced color structure. Contains the rgbc color, the corrected rgb, the IR, temperature, saturation and lux values.  <a href="structcomplete__color__t.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcolor__t.html">color_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basic struct for a color. Contains the RGB and HSL components.  <a href="structcolor__t.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
@@ -173,15 +168,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a98d00cbfc6cb3d3c72b859da7b824628"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="colorSensor_8h.html#a98d00cbfc6cb3d3c72b859da7b824628">cs_init</a> ()</td></tr>
 <tr class="memdesc:a98d00cbfc6cb3d3c72b859da7b824628"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the color sensor in periodic read mode.  <a href="#a98d00cbfc6cb3d3c72b859da7b824628">More...</a><br /></td></tr>
 <tr class="separator:a98d00cbfc6cb3d3c72b859da7b824628"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77b0ffd46a52dbb4294fd7924f608de7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="colorSensor_8h.html#a77b0ffd46a52dbb4294fd7924f608de7">cs_read_clear_corrected</a> (<a class="el" href="structrgb__color__t.html">rgb_color_t</a> *color)</td></tr>
-<tr class="memdesc:a77b0ffd46a52dbb4294fd7924f608de7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the color and clear correct it.  <a href="#a77b0ffd46a52dbb4294fd7924f608de7">More...</a><br /></td></tr>
-<tr class="separator:a77b0ffd46a52dbb4294fd7924f608de7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9d8deea040144d0382bfa8b3ca1462f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="colorSensor_8h.html#af9d8deea040144d0382bfa8b3ca1462f">cs_read_raw</a> (<a class="el" href="structrgb__color__t.html">rgb_color_t</a> *color)</td></tr>
-<tr class="memdesc:af9d8deea040144d0382bfa8b3ca1462f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the color raw.  <a href="#af9d8deea040144d0382bfa8b3ca1462f">More...</a><br /></td></tr>
-<tr class="separator:af9d8deea040144d0382bfa8b3ca1462f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf8a27fabd9c693ff2e247415945ea0e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="colorSensor_8h.html#adf8a27fabd9c693ff2e247415945ea0e">cs_read_complete</a> (<a class="el" href="structcomplete__color__t.html">complete_color_t</a> *color)</td></tr>
-<tr class="memdesc:adf8a27fabd9c693ff2e247415945ea0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the color and calculate all the parameters.  <a href="#adf8a27fabd9c693ff2e247415945ea0e">More...</a><br /></td></tr>
-<tr class="separator:adf8a27fabd9c693ff2e247415945ea0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae07874642d6dc0f27eb1521ecbfae1dc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="colorSensor_8h.html#ae07874642d6dc0f27eb1521ecbfae1dc">cs_read_clear_corrected</a> (<a class="el" href="structcolor__t.html">color_t</a> *color)</td></tr>
+<tr class="memdesc:ae07874642d6dc0f27eb1521ecbfae1dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the color and clear correct it.  <a href="#ae07874642d6dc0f27eb1521ecbfae1dc">More...</a><br /></td></tr>
+<tr class="separator:ae07874642d6dc0f27eb1521ecbfae1dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a747039a0f6945a4f6fd9ee7102bbff36"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="colorSensor_8h.html#a747039a0f6945a4f6fd9ee7102bbff36">cs_read_raw</a> (<a class="el" href="structcolor__t.html">color_t</a> *color)</td></tr>
+<tr class="memdesc:a747039a0f6945a4f6fd9ee7102bbff36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the color raw.  <a href="#a747039a0f6945a4f6fd9ee7102bbff36">More...</a><br /></td></tr>
+<tr class="separator:a747039a0f6945a4f6fd9ee7102bbff36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a960d450999b5c49697c155c3364fbb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="colorSensor_8h.html#a8a960d450999b5c49697c155c3364fbb">cs_close</a> ()</td></tr>
 <tr class="memdesc:a8a960d450999b5c49697c155c3364fbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controlledly closes the sensor object.  <a href="#a8a960d450999b5c49697c155c3364fbb">More...</a><br /></td></tr>
 <tr class="separator:a8a960d450999b5c49697c155c3364fbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -674,8 +666,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a77b0ffd46a52dbb4294fd7924f608de7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a77b0ffd46a52dbb4294fd7924f608de7">&#9670;&nbsp;</a></span>cs_read_clear_corrected()</h2>
+<a id="ae07874642d6dc0f27eb1521ecbfae1dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae07874642d6dc0f27eb1521ecbfae1dc">&#9670;&nbsp;</a></span>cs_read_clear_corrected()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -683,7 +675,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int cs_read_clear_corrected </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structrgb__color__t.html">rgb_color_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structcolor__t.html">color_t</a> *&#160;</td>
           <td class="paramname"><em>color</em></td><td>)</td>
           <td></td>
         </tr>
@@ -701,34 +693,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="adf8a27fabd9c693ff2e247415945ea0e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf8a27fabd9c693ff2e247415945ea0e">&#9670;&nbsp;</a></span>cs_read_complete()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void cs_read_complete </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structcomplete__color__t.html">complete_color_t</a> *&#160;</td>
-          <td class="paramname"><em>color</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Read the color and calculate all the parameters. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">color</td><td>Pointer to the structure to store the color information </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="af9d8deea040144d0382bfa8b3ca1462f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af9d8deea040144d0382bfa8b3ca1462f">&#9670;&nbsp;</a></span>cs_read_raw()</h2>
+<a id="a747039a0f6945a4f6fd9ee7102bbff36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a747039a0f6945a4f6fd9ee7102bbff36">&#9670;&nbsp;</a></span>cs_read_raw()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -736,7 +702,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int cs_read_raw </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structrgb__color__t.html">rgb_color_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structcolor__t.html">color_t</a> *&#160;</td>
           <td class="paramname"><em>color</em></td><td>)</td>
           <td></td>
         </tr>

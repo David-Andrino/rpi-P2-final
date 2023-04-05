@@ -1,16 +1,14 @@
 \hypertarget{colorSensor_8h}{}\section{src/\+Color\+Sensor/color\+Sensor.h File Reference}
 \label{colorSensor_8h}\index{src/\+Color\+Sensor/color\+Sensor.\+h@{src/\+Color\+Sensor/color\+Sensor.\+h}}
 {\ttfamily \#include $<$stdint.\+h$>$}\newline
-Include dependency graph for color\+Sensor.\+h\+:
-\nopagebreak
+Include dependency graph for color\+Sensor.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=230pt]{colorSensor_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -20,10 +18,8 @@ This graph shows which files directly or indirectly include this file\+:
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-struct \hyperlink{structrgb__color__t}{rgb\+\_\+color\+\_\+t}
-\begin{DoxyCompactList}\small\item\em Basic struct for an R\+GB color. Contains the three colors as unsigned 8 bits. \end{DoxyCompactList}\item 
-struct \hyperlink{structcomplete__color__t}{complete\+\_\+color\+\_\+t}
-\begin{DoxyCompactList}\small\item\em Advanced color structure. Contains the rgbc color, the corrected rgb, the IR, temperature, saturation and lux values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+struct \hyperlink{structcolor__t}{color\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Basic struct for a color. Contains the R\+GB and H\+SL components. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -96,12 +92,10 @@ struct \hyperlink{structcomplete__color__t}{complete\+\_\+color\+\_\+t}
 \item 
 void \hyperlink{colorSensor_8h_a98d00cbfc6cb3d3c72b859da7b824628}{cs\+\_\+init} ()
 \begin{DoxyCompactList}\small\item\em Initializes the color sensor in periodic read mode. \end{DoxyCompactList}\item 
-int \hyperlink{colorSensor_8h_a77b0ffd46a52dbb4294fd7924f608de7}{cs\+\_\+read\+\_\+clear\+\_\+corrected} (\hyperlink{structrgb__color__t}{rgb\+\_\+color\+\_\+t} $\ast$color)
+int \hyperlink{colorSensor_8h_ae07874642d6dc0f27eb1521ecbfae1dc}{cs\+\_\+read\+\_\+clear\+\_\+corrected} (\hyperlink{structcolor__t}{color\+\_\+t} $\ast$color)
 \begin{DoxyCompactList}\small\item\em Read the color and clear correct it. \end{DoxyCompactList}\item 
-int \hyperlink{colorSensor_8h_af9d8deea040144d0382bfa8b3ca1462f}{cs\+\_\+read\+\_\+raw} (\hyperlink{structrgb__color__t}{rgb\+\_\+color\+\_\+t} $\ast$color)
+int \hyperlink{colorSensor_8h_a747039a0f6945a4f6fd9ee7102bbff36}{cs\+\_\+read\+\_\+raw} (\hyperlink{structcolor__t}{color\+\_\+t} $\ast$color)
 \begin{DoxyCompactList}\small\item\em Read the color raw. \end{DoxyCompactList}\item 
-void \hyperlink{colorSensor_8h_adf8a27fabd9c693ff2e247415945ea0e}{cs\+\_\+read\+\_\+complete} (\hyperlink{structcomplete__color__t}{complete\+\_\+color\+\_\+t} $\ast$color)
-\begin{DoxyCompactList}\small\item\em Read the color and calculate all the parameters. \end{DoxyCompactList}\item 
 void \hyperlink{colorSensor_8h_a8a960d450999b5c49697c155c3364fbb}{cs\+\_\+close} ()
 \begin{DoxyCompactList}\small\item\em Controlledly closes the sensor object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -322,11 +316,11 @@ Controlledly closes the sensor object.
 
 Initializes the color sensor in periodic read mode. 
 
-\mbox{\Hypertarget{colorSensor_8h_a77b0ffd46a52dbb4294fd7924f608de7}\label{colorSensor_8h_a77b0ffd46a52dbb4294fd7924f608de7}} 
+\mbox{\Hypertarget{colorSensor_8h_ae07874642d6dc0f27eb1521ecbfae1dc}\label{colorSensor_8h_ae07874642d6dc0f27eb1521ecbfae1dc}} 
 \index{color\+Sensor.\+h@{color\+Sensor.\+h}!cs\+\_\+read\+\_\+clear\+\_\+corrected@{cs\+\_\+read\+\_\+clear\+\_\+corrected}}
 \index{cs\+\_\+read\+\_\+clear\+\_\+corrected@{cs\+\_\+read\+\_\+clear\+\_\+corrected}!color\+Sensor.\+h@{color\+Sensor.\+h}}
 \subsubsection{\texorpdfstring{cs\+\_\+read\+\_\+clear\+\_\+corrected()}{cs\_read\_clear\_corrected()}}
-{\footnotesize\ttfamily int cs\+\_\+read\+\_\+clear\+\_\+corrected (\begin{DoxyParamCaption}\item[{\hyperlink{structrgb__color__t}{rgb\+\_\+color\+\_\+t} $\ast$}]{color }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int cs\+\_\+read\+\_\+clear\+\_\+corrected (\begin{DoxyParamCaption}\item[{\hyperlink{structcolor__t}{color\+\_\+t} $\ast$}]{color }\end{DoxyParamCaption})}
 
 
 
@@ -340,26 +334,11 @@ Read the color and clear correct it.
 \begin{DoxyReturn}{Returns}
 (int) Exit code of the operation 
 \end{DoxyReturn}
-\mbox{\Hypertarget{colorSensor_8h_adf8a27fabd9c693ff2e247415945ea0e}\label{colorSensor_8h_adf8a27fabd9c693ff2e247415945ea0e}} 
-\index{color\+Sensor.\+h@{color\+Sensor.\+h}!cs\+\_\+read\+\_\+complete@{cs\+\_\+read\+\_\+complete}}
-\index{cs\+\_\+read\+\_\+complete@{cs\+\_\+read\+\_\+complete}!color\+Sensor.\+h@{color\+Sensor.\+h}}
-\subsubsection{\texorpdfstring{cs\+\_\+read\+\_\+complete()}{cs\_read\_complete()}}
-{\footnotesize\ttfamily void cs\+\_\+read\+\_\+complete (\begin{DoxyParamCaption}\item[{\hyperlink{structcomplete__color__t}{complete\+\_\+color\+\_\+t} $\ast$}]{color }\end{DoxyParamCaption})}
-
-
-
-Read the color and calculate all the parameters. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em color} & Pointer to the structure to store the color information \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{colorSensor_8h_af9d8deea040144d0382bfa8b3ca1462f}\label{colorSensor_8h_af9d8deea040144d0382bfa8b3ca1462f}} 
+\mbox{\Hypertarget{colorSensor_8h_a747039a0f6945a4f6fd9ee7102bbff36}\label{colorSensor_8h_a747039a0f6945a4f6fd9ee7102bbff36}} 
 \index{color\+Sensor.\+h@{color\+Sensor.\+h}!cs\+\_\+read\+\_\+raw@{cs\+\_\+read\+\_\+raw}}
 \index{cs\+\_\+read\+\_\+raw@{cs\+\_\+read\+\_\+raw}!color\+Sensor.\+h@{color\+Sensor.\+h}}
 \subsubsection{\texorpdfstring{cs\+\_\+read\+\_\+raw()}{cs\_read\_raw()}}
-{\footnotesize\ttfamily int cs\+\_\+read\+\_\+raw (\begin{DoxyParamCaption}\item[{\hyperlink{structrgb__color__t}{rgb\+\_\+color\+\_\+t} $\ast$}]{color }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int cs\+\_\+read\+\_\+raw (\begin{DoxyParamCaption}\item[{\hyperlink{structcolor__t}{color\+\_\+t} $\ast$}]{color }\end{DoxyParamCaption})}
 
 
 

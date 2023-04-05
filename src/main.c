@@ -21,9 +21,8 @@ static pthread_mutex_t g_data_mutex  = PTHREAD_MUTEX_INITIALIZER;
 static pthread_cond_t g_stop_cond    = PTHREAD_COND_INITIALIZER;
 static pthread_cond_t g_data_cond    = PTHREAD_COND_INITIALIZER;
 
-static acc_t            g_acceleration;
-static rgb_color_t      g_rgb_color;
-static complete_color_t g_complete_color;
+static acc_t        g_acceleration;
+static color_t      g_rgb_color;
 static volatile int gb_data_ready = 0;
 
 static sigset_t g_stopsignals;

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lux',['lux',['../structcomplete__color__t.html#aa88884bb137a437239d76694ccd0cb0d',1,'complete_color_t']]]
+  ['s',['s',['../structcolor__t.html#a8363dde4b09ee0eafb24539ca0d6299e',1,'color_t']]]
 ];

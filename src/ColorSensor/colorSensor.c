@@ -9,6 +9,9 @@
 #include <linux/i2c.h>
 #include <linux/i2c-dev.h>
 
+#define MIN(X, Y) (((X) < (Y)) ? (X) : (Y))
+#define MAX(X, Y) (((X) > (Y)) ? (X) : (Y))
+
 static int g_fd;
 
 void cs_write_register(uint8_t reg, uint8_t data);
@@ -55,7 +58,7 @@ void cs_close() {
     close(g_fd);
 }
 
-int cs_read_clear_corrected(rgb_color_t *color) {
+int cs_read_clear_corrected(color_t *color) {
     // Get colors
     uint16_t r, g, b, c;
     cs_read_raw_registers(&r, &g, &b, &c);   
@@ -71,12 +74,12 @@ int cs_read_clear_corrected(rgb_color_t *color) {
     color->r = (uint8_t)(255.0f * r / c);
     color->g = (uint8_t)(255.0f * g / c);
     color->b = (uint8_t)(255.0f * b / c);
+    calculate_hsv(color);
 
-    if (color->r > 255 || color->g > 255 || color->b > 255) printf("ERROR\n\n\n\n");
     return 0;
 }
 
-int  cs_read_raw(rgb_color_t* color) {
+int  cs_read_raw(color_t* color) {
     // Get colors
     uint16_t r, g, b, c;
     cs_read_raw_registers(&r, &g, &b, &c);   
@@ -85,6 +88,7 @@ int  cs_read_raw(rgb_color_t* color) {
     color->r = (uint8_t)(255.0f * r / 0xFFFF);
     color->g = (uint8_t)(255.0f * g / 0xFFFF);
     color->b = (uint8_t)(255.0f * b / 0xFFFF);
+    calculate_hsv(color);
 
     return 0;
 }
@@ -110,4 +114,30 @@ void cs_write_register(uint8_t reg, uint8_t data) {
 
     // Send packet
     ioctl(g_fd, I2C_RDWR, &packets);
+}
+
+static void calculate_hsv(color_t* color) {
+    // Normalize RGB
+    double R = color->r / 255.0;
+    double G = color->g / 255.0;
+    double B = color->b / 255.0;
+
+    // Parameters (Max, min and Chroma)
+    double M = MAX(MAX(R, G), B);
+    double m = MIN(MIN(R, G), B);
+    double C = M - m;
+
+    // Calculate hue
+    double H;
+    if (C == 0) H = 0;
+    else if (M == R) H = fmod((G - B) / C, 6); 
+    else if (M == G) H = (((B - R) / C) + 2);
+    else             H = (((R - G) / C) + 4);
+    color->h = 60 * H;
+    
+    // Calculate value
+    color->v = M;
+
+    // Calculate saturation
+    color->s = (M == 0) ? 0 : (C / M);
 }

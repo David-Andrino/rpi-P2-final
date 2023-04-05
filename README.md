@@ -56,3 +56,4 @@ You can download an alredy compiled version in the [Releases](https://github.com
 - [StackOverflow question regarding i2c](https://stackoverflow.com/questions/52975817/setup-i2c-reading-and-writing-in-c-language)
 - [How to activate Raspberry-pi’s i2c bus](https://openest.io/en/services/activate-raspberry-pi-4-i2c-bus/)
 - [Doxygen](https://www.doxygen.nl/index.html)
+- [HSL and HSV](https://en.wikipedia.org/wiki/HSL_and_HSV)
