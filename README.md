@@ -4,9 +4,6 @@ Project for the Embedded System Design with Raspberry Pi subject in the 2022/23 
 
 Multi-threaded application that uses I2C to communicate with the TCS3462 color sensor and displays its measurements to the user through a terminal. It allows the user to select different color measurement calculations such as IR reject, clear compensation, etc.
 
-## Usage
-TODO: Add usage and images about the application
-
 ## Build from Source
 To use this application you have to clone the repository, compile it with a cross-compiling tool and update to the Raspberry Pi. You need a compiler created with the same Buildroot configuration that was used to generate the Raspberry Pi's embedded operating system.
 
